@@ -11,6 +11,7 @@
 
 body {
   font-family: 'Noto Sans', sans-serif;
+  overflow-x: hidden;
 }
 
 .the-container {
@@ -39,4 +40,24 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   margin: 0.8rem 0 1.5rem;
+}
+
+@media (min-width: 769px) {
+  .width-list-sight {
+    width: calc(50% - 0.75rem);
+  }
+}
+
+.about-trip-class {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 769px) {
+  .about-trip-class {
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 2fr;
+  }
 }

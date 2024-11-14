@@ -14,6 +14,8 @@ import QuestionIcon from './question.svg'
 import Tile1 from './tile-1.svg'
 import Tile2 from './tile-2.svg'
 import Tile3 from './tile-3.svg'
+import LocationIcon from './location.svg'
+import CheckmarkIcon from './checkmark.svg'
 
 export {
   Humburger,
@@ -31,5 +33,7 @@ export {
   QuestionIcon,
   Tile1,
   Tile2,
-  Tile3
+  Tile3,
+  LocationIcon,
+  CheckmarkIcon
 }
