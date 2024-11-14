@@ -1,0 +1,42 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="52"
+  height="53"
+  viewBox="0 0 52 53"
+  fill="none"
+  aria-labelledby="whatsapp-icon-title"
+  role="img"
+  class="injected-svg icon icon-clickable navbar-contact__whatsapp"
+>
+  <title id="whatsapp-icon-title">WhatsApp Icon</title>
+  <g clip-path="url(#clip0)" filter="url(#filter0_d)">
+    <path
+      d="M47.87 25.93C47.87 37.97 38.11 47.73 26.07 47.73S4.27 37.97 4.27 25.93 14.03 4.13 26.07 4.13 47.87 13.89 47.87 25.93Z"
+      fill="#25D366"
+    />
+    <path
+      d="M15.87 41.2c0-2.95-2.39-5.33-5.34-5.33s-5.33 2.38-5.33 5.33 2.39 5.33 5.34 5.33 5.33-2.38 5.33-5.33Z"
+      fill="#25D366"
+    />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M43.01 9.01c-4.51-4.52-10.51-7.01-16.9-7.01-13.18 0-23.9 10.72-23.9 23.9 0 4.21 1.1 8.33 3.19 11.95L2 50.23l12.67-3.32c3.49 1.9 7.42 2.9 11.42 2.9h.01c13.17 0 23.9-10.72 23.9-23.9 0-6.39-2.48-12.39-7.01-16.9ZM26.1 45.78h-.01c-3.56 0-7.06-.96-10.15-2.77l-.73-.43-7.52 1.97 2-7.33-.47-.75C7.28 33.31 6.23 29.65 6.23 25.9 6.24 14.95 15.15 6.04 26.11 6.04c5.31 0 10.3 2.07 14.05 5.82 3.75 3.75 5.82 8.74 5.82 14.08 0 10.95-8.91 19.86-19.86 19.86ZM36.997 30.904c-.597-.3-3.533-1.745-4.08-1.944-.548-.2-.945-.3-1.342.298-.398.598-1.543 1.943-1.891 2.34-.348.399-.696.448-1.293.148-.597-.3-2.521-.93-4.803-2.965-1.775-1.584-2.974-3.539-3.322-4.138-.349-.598-.037-.921.26-1.218.268-.268.597-.698.896-1.046.299-.348.398-.598.598-.996.199-.399.099-.748-.05-1.047-.149-.298-1.343-3.238-1.841-4.433-.485-1.164-.978-1.006-1.343-1.026-.348-.017-.746-.02-1.145-.02-.398 0-1.044.149-1.592.747-.548.598-2.09 2.043-2.09 4.981 0 2.938 2.14 5.779 2.439 6.178.299.399 4.212 6.43 10.202 9.018 1.425.615 2.537.983 3.405 1.258 1.43.454 2.731.39 3.76.236 1.148-.172 3.534-1.445 4.032-2.84.497-1.395.497-2.591.348-2.839-.148-.249-.547-.399-1.144-.698Z"
+      fill="white"
+    />
+  </g>
+  <defs>
+    <filter id="filter0_d" x="0" y="0" width="52" height="52.27" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+      <feOffset />
+      <feGaussianBlur stdDeviation="1" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.156863 0 0 0 0 0.156863 0 0 0 0 0.156863 0 0 0 0.12 0" />
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+    </filter>
+    <clipPath id="clip0">
+      <rect width="48" height="48.27" fill="white" transform="translate(2 2)" />
+    </clipPath>
+  </defs>
+</svg>

@@ -1,0 +1,18 @@
+<svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            id="Layer_1"
+            data-name="Layer 1"
+            viewBox="0 0 48 48"
+            className="injected-svg icon sisterbrands-collapsed__icon"
+            data-src="/assets/shared/icons/UI-arrow1-down.svg"
+          >
+            <defs>
+              <clipPath id="clip-path-9546">
+                <rect x="4" y="4" width="40" height="40" fill="none"></rect>
+              </clipPath>
+            </defs>
+            <g clip-path="url(#clip-path-9546)">
+              <path d="M24,28.35,8.92,13.18a2.88,2.88,0,0,0-4.08,0,2.93,2.93,0,0,0,0,4.11l17,17.06a2.82,2.82,0,0,0,2.18.84,2.82,2.82,0,0,0,2.18-.84l17-17.06a2.93,2.93,0,0,0,0-4.11,2.88,2.88,0,0,0-4.08,0Z"></path>
+            </g>
+          </svg>

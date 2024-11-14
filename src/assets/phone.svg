@@ -1,0 +1,10 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 48 48"
+  class="injected-svg icon icon-clickable navbar-contact__telephone"
+  aria-labelledby="telephone-icon-title"
+  role="img"
+>
+  <title id="telephone-icon-title">Telephone Icon</title>
+  <path d="M42.91,33.36l-5.58-5.59a3.72,3.72,0,0,0-6.18,1.4,3.8,3.8,0,0,1-4.39,2.39c-4-1-9.37-6.18-10.36-10.37a3.6,3.6,0,0,1,2.39-4.38,3.71,3.71,0,0,0,1.39-6.18L14.6,5.05a4,4,0,0,0-5.38,0L5.43,8.83c-3.79,4,.4,14.56,9.77,23.93s19.94,13.75,23.92,9.77l3.79-3.79A4,4,0,0,0,42.91,33.36Z"/>
+</svg>

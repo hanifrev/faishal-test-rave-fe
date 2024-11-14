@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.the-container {
+  @apply px-4 w-full md:px-6 xl:px-8 xl2:max-w-[1380px] xl2:px-0 mx-auto;
+}
+
+.shadow-navbar {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.underline-transition::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: red;
+  transition: width 0.5s ease;
+}
+
+.underline-transition:hover::after {
+  width: 100%;
+}
