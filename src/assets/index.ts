@@ -6,6 +6,14 @@ import WAIcon from './whatsapp.svg'
 import CloseIcon from './close.svg'
 import ChevronDown from './chev-down.svg'
 import ChevronRight from './chev-right.svg'
+import CalendarIcon from './calendar.svg'
+import MealsIcon from './meals.svg'
+import WalkIcon from './walk.svg'
+import PinLocIcon from './pinlocation.svg'
+import QuestionIcon from './question.svg'
+import Tile1 from './tile-1.svg'
+import Tile2 from './tile-2.svg'
+import Tile3 from './tile-3.svg'
 
 export {
   Humburger,
@@ -15,5 +23,13 @@ export {
   WAIcon,
   CloseIcon,
   ChevronDown,
-  ChevronRight
+  ChevronRight,
+  CalendarIcon,
+  MealsIcon,
+  WalkIcon,
+  PinLocIcon,
+  QuestionIcon,
+  Tile1,
+  Tile2,
+  Tile3
 }

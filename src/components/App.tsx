@@ -1,4 +1,5 @@
 import HeaderSection from './sections/HeaderSection'
+import ItinerarySection from './sections/ItinerarySection'
 import TopTourSection from './sections/TopTourSection'
 
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
     <div className="the-container relative">
       <HeaderSection />
       <TopTourSection />
+      <ItinerarySection />
     </div>
   )
 }
