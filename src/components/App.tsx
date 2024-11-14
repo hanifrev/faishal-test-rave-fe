@@ -1,10 +1,11 @@
-import React from 'react'
-import Navbar from './modules/Navbar'
+import HeaderSection from './sections/HeaderSection'
+import TopTourSection from './sections/TopTourSection'
 
 const App = () => {
   return (
-    <div className="the-container">
-      <Navbar />
+    <div className="the-container relative">
+      <HeaderSection />
+      <TopTourSection />
     </div>
   )
 }

@@ -20,8 +20,10 @@ const TopBar = () => {
         <span className="cursor-pointer underline-transition">
           <a href="#">Agents Login</a>
         </span>
-        <span className="cursor-pointer flex flex-row gap-1 underline-transition">
-          <a href="#">My Trafalgar</a>
+        <span className="cursor-pointer flex flex-row gap-1 ">
+          <a href="#" className="underline-transition">
+            My Trafalgar
+          </a>
           <img src={ChevronDown} className="w-2" />
         </span>
       </div>

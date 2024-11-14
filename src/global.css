@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
 
 .the-container {
   @apply px-4 w-full md:px-6 xl:px-8 xl2:max-w-[1380px] xl2:px-0 mx-auto;
@@ -15,7 +21,7 @@
   display: block;
   width: 0;
   height: 2px;
-  background-color: red;
+  background-color: #b00222;
   transition: width 0.5s ease;
 }
 
