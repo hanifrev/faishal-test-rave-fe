@@ -1,6 +1,7 @@
-type TransferInfoType = {
-  title: 'Transfer' | 'Accommodation' | 'Welcome' | 'Meals'
+type facilitiesType = {
+  title: 'Transfer' | 'Accomodation' | 'Welcome' | 'Meals'
   desc?: string
+  note?: string
 }
 
 interface ItineraryType {
@@ -8,7 +9,7 @@ interface ItineraryType {
   title: string
   highlightTag?: string
   city: string[]
-  transferInfo?: TransferInfoType[]
+  facilities?: facilitiesType[]
   image: string
   description: string
   carousel: {
@@ -26,15 +27,16 @@ export const ItineraryData: ItineraryType[] = [
     title: 'Welcome to Rome',
     highlightTag: 'Start of Journey',
     city: ['Rome', 'Turin', 'Milan'],
-    transferInfo: [
+    facilities: [
       { title: 'Transfer', desc: 'Transfer from airport to hotel' },
       { title: 'Welcome', desc: 'Meet and greet at the airport' },
-      { title: 'Accommodation', desc: 'Check into your hotel' },
+      { title: 'Accomodation', desc: 'Check into your hotel' },
       { title: 'Meals', desc: 'Welcome dinner at the hotel' }
     ],
     image:
       'https://lp-cms-production.imgix.net/2024-07/AdobeStock40207802.jpeg',
-    description: 'Experience the beauty of Rome from day one.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
     carousel: [
       {
         image: 'colosseum.jpg',
@@ -57,13 +59,14 @@ export const ItineraryData: ItineraryType[] = [
     title: 'Exploring Turin',
     // highlightTag: 'Day Trip',
     city: ['Turin'],
-    // transferInfo: [
-    //   {
-    //     title: 'Transfer',
-    //     desc: 'Take a scenic train ride from Rome to Turin.'
-    //   },
-    //   { title: 'Accommodation', desc: "Stay at Turin's historic hotel." }
-    // ],
+    facilities: [
+      {
+        title: 'Transfer',
+        desc: 'Take a scenic train ride from Rome to Turin.',
+        note: 'this is small notes thath yntkts'
+      },
+      { title: 'Accomodation', desc: "Stay at Turin's historic hotel." }
+    ],
     image:
       'https://lp-cms-production.imgix.net/2024-07/AdobeStock40207802.jpeg',
     description: 'Discover the charm of Turin with a guided tour.',

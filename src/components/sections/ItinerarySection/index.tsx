@@ -1,9 +1,47 @@
-import { ArrivalIcon, ChevronDown, SeparatorIcon, WelcomeIcon } from 'assets'
+import {
+  AccomodationIcon,
+  ArrivalIcon,
+  ChevronDown,
+  MealsIcon,
+  WelcomeIcon
+} from 'assets'
+import CityList from 'components/elements/CityList'
 import TagHighlight from 'components/elements/TagHighlight'
 import { ItineraryData } from 'constants/Itinerarty'
-import React from 'react'
+import React, { useState } from 'react'
 
 const ItinerarySection = () => {
+  const [expandedItems, setExpandedItems] = useState<boolean[]>(
+    ItineraryData.map(() => false)
+  )
+
+  const allExpanded = expandedItems.every((item) => item)
+
+  const toggleAll = (expand: boolean) => {
+    setExpandedItems(ItineraryData.map(() => expand))
+  }
+
+  const toggleItem = (index: number) => {
+    setExpandedItems((prev) =>
+      prev.map((item, i) => (i === index ? !item : item))
+    )
+  }
+
+  const getIcon = (title: string): string | null | any => {
+    switch (title) {
+      case 'Welcome':
+        return WelcomeIcon
+      case 'Transfer':
+        return ArrivalIcon
+      case 'Accomodation':
+        return AccomodationIcon
+      case 'Meals':
+        return MealsIcon
+      default:
+        return null
+    }
+  }
+
   return (
     <div className="relative pt-2 xl:pt-12 flex flex-col">
       <div className="flex flex-col pt-6 text-center md:text-left">
@@ -17,21 +55,44 @@ const ItinerarySection = () => {
       </div>
       <div>
         <span>Download</span>
-        <span>Expand</span>
+        <button
+          onClick={() => toggleAll(!allExpanded)}
+          className="flex flex-row gap-2 items-center"
+        >
+          {allExpanded ? 'Collapse all days' : 'Expand all days'}
+          <img
+            src={ChevronDown}
+            alt="Chevron"
+            className={`transition-transform w-4 ${
+              allExpanded ? 'rotate-180' : ''
+            }`}
+          />
+        </button>
       </div>
       <div className="flex flex-col md:gap-4">
         {ItineraryData.map((item, index) => (
           <div
-            className="relative flex flex-col py-4 md:py-0 md:pr-4 md:border-[0.5px] md:border-[#e6e6e6] md:rounded-md h-auto"
+            className="relative flex flex-col py-4 md:py-0 md:pr-0 md:border-[0.5px] md:border-[#e6e6e6] md:rounded-md h-auto"
             key={index}
           >
             {/* this is <md border top */}
-            <div className="absolute inset-x-0 top-0 border-t border-gray-300 w-screen h-full left-1/2 -translate-x-1/2 md:hidden" />
-            <div className="flex flex-row justify-between">
-              <div className="flex flex-row">
+            <div className="absolute inset-x-0 top-0 border-t border-gray-300 w-screen h-full left-1/2 -translate-x-1/2 md:hidden z-[-1]" />
+            <div
+              className={`flex flex-row justify-between z-[9999] relative ${
+                expandedItems[index] && 'md:bg-[#f5f5f5] '
+              }`}
+            >
+              <div
+                className={`absolute inset-x-0 top-[-15px] z-[-1] bg-[#f5f5f5] w-screen height-fill mb-[-5px] left-1/2 -translate-x-1/2 md:hidden ${
+                  expandedItems[index] ? 'block' : 'hidden'
+                }`}
+              />
+              <div className="flex flex-row transition-all">
                 {/* main image */}
                 <img
-                  className="hidden md:block w-[200px] h-full object-cover"
+                  className={`hidden md:block w-[200px] h-full object-cover  ${
+                    expandedItems[index] && 'md:hidden'
+                  }`}
                   src={item.image}
                 />
                 {/* itinerary summary */}
@@ -42,28 +103,19 @@ const ItinerarySection = () => {
                       <TagHighlight text={item.highlightTag} />
                     )}
                   </span>
-                  <span className="text-base md:text-base mb-[10px] font-bold">
+                  <span className="flex items-center gap-3 text-base md:text-base mb-[10px] font-bold">
                     {item.title}
+                    <CityList
+                      cities={item.city}
+                      classNames="hidden lg:block font-normal"
+                    />
                   </span>
 
-                  <span className="text-secondary text-sm">
-                    {item.city.map((city, cityIndex) => (
-                      <React.Fragment key={city}>
-                        {city}
-                        {cityIndex < item.city.length - 1 && (
-                          <img
-                            src={SeparatorIcon}
-                            alt="separator"
-                            className="inline mx-1 w-4"
-                          />
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </span>
+                  <CityList cities={item.city} classNames="lg:hidden" />
 
                   {/* optiona transfer info */}
                   <div className="flex flex-row gap-4 pt-1 md:pt-2">
-                    {item.transferInfo?.map((item, index) => {
+                    {item.facilities?.map((item, index) => {
                       return (
                         <div
                           className={`${
@@ -93,18 +145,71 @@ const ItinerarySection = () => {
                 </div>
               </div>
               {/* chevron down */}
-              <div className="flex flex-row items-center gap-2">
+              <button
+                className="flex flex-row items-center gap-2 md:pr-4"
+                onClick={() => toggleItem(index)}
+              >
                 <span className="text-base font-bold hidden md:block">
                   See More
                 </span>
-                <img src={ChevronDown} className="w-4" />
-              </div>
+                <img
+                  src={ChevronDown}
+                  alt="Chevron"
+                  className={`transition-transform w-4 ${
+                    expandedItems[index] ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
             </div>
 
-            {/* <div>expand</div> */}
-
             {/* this is <md border bottom */}
-            <div className="absolute inset-x-0 bottom-0 border-b border-gray-300 w-screen h-full left-1/2 -translate-x-1/2 md:hidden" />
+            {expandedItems[index] && (
+              <div className="pt-6 pb-10 flex flex-col gap-4 px-2 md:px-10">
+                <div className="flex flex-col md:flex-row-reverse md:justify-between">
+                  <img
+                    src={item.image}
+                    className="w-auto h-auto pb-3 rounded-md sm:h-full md:w-full max-w-[1600px] md:max-h-[190px] lg:max-h-[230px] xl:max-h-[283px] xl2:max-h-[324px] object-cover"
+                  />
+                  <div className="flex flex-col gap-4 md:basis-full md:pr-10">
+                    {/* <span className="text-base pb-2">Day {index + 1}</span> */}
+                    <span className="text-lg md:text-2xl xl:text-[28px] font-bold">
+                      {item.title}
+                    </span>
+                    <span className="text-sm md:text-base text-secondary leading-[150%]">
+                      {item.description}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  {item.facilities?.map((item, index) => {
+                    return (
+                      <div className="flex flex-row gap-2" key={index}>
+                        {getIcon(item.title) && (
+                          <img
+                            src={getIcon(item.title)}
+                            alt="zxc"
+                            className="w-[44px] h-auto px-[10.5px]"
+                          />
+                        )}
+                        <span className="text-sm md:text-base">
+                          <b>{item.title}</b> {item.desc}
+                          {item.note && (
+                            <>
+                              <br />
+                              <span className=" text-secondary text-[10px] md:text-xs">
+                                {item.note}
+                              </span>
+                            </>
+                          )}
+                        </span>
+                      </div>
+                    )
+                  })}
+                </div>
+                <div>includeexclude</div>
+              </div>
+            )}
+            <div className="absolute inset-x-0 bottom-0 border-b border-gray-300 w-screen h-full left-1/2 -translate-x-1/2 md:hidden z-[-1]" />
           </div>
         ))}
       </div>
