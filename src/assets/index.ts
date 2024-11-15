@@ -18,6 +18,10 @@ import LocationIcon from './location.svg'
 import CheckmarkIcon from './checkmark.svg'
 import CPlusIcon from './circle-plus.svg'
 import CNegativeIcon from './circle-negative.svg'
+import SeparatorIcon from './separator.svg'
+import ArrivalIcon from './arrival.svg'
+import WelcomeIcon from './welcome.svg'
+import AccomodationIcon from './accomodation.svg'
 
 export {
   Humburger,
@@ -39,5 +43,9 @@ export {
   LocationIcon,
   CheckmarkIcon,
   CPlusIcon,
-  CNegativeIcon
+  CNegativeIcon,
+  SeparatorIcon,
+  ArrivalIcon,
+  WelcomeIcon,
+  AccomodationIcon
 }

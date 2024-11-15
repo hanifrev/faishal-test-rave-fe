@@ -7,6 +7,9 @@ export default {
       screens: {
         md: '769px',
         xl2: '1395px'
+      },
+      colors: {
+        secondary: '#6b6b6b'
       }
     }
   },

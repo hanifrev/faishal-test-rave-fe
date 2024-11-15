@@ -8,7 +8,7 @@ import TravelHighlightSection from './sections/TravelHighlightSection'
 
 const App = () => {
   return (
-    <div className="the-container relative">
+    <div className="the-container pb-3 relative">
       <HeaderSection />
       <TopTourSection />
       <ItinerarySection />
