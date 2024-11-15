@@ -16,8 +16,12 @@ interface ItineraryType {
     image: string
     title: string
     desc: string
-    marker: string
-    included: boolean
+    tag: string
+    optionalExp?: {
+      price?: string
+      category?: string
+      bookDesc?: string
+    }
   }[]
 }
 
@@ -39,18 +43,58 @@ export const ItineraryData: ItineraryType[] = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
     carousel: [
       {
-        image: 'colosseum.jpg',
-        title: 'Colosseum Tour',
-        desc: 'Visit the historic Colosseum.',
-        marker: 'Activity',
-        included: true
+        image: 'https://dummyimage.com/300',
+        title: ' 1 Tour',
+        desc: 'Discover ancient treasures of Rome with a Local Specialist. See Circus Maximus and visit the mighty Colosseum, which bears witness to the limitless courage of the gladiators.',
+        tag: 'Optional Experience',
+
+        optionalExp: {
+          price: '$53',
+          bookDesc:
+            'Optional Experiences are enhancements to your tour and can be booked through your Travel Director while on tour.'
+        }
       },
       {
-        image: 'vatican.jpg',
+        image: 'https://dummyimage.com/300',
+        title: '2 Museums',
+        desc: 'Discover ancient treasures of Rome with a Local Specialist. See Circus Maximus and visit the mighty Colosseum, which bears witness to the limitless courage of the gladiators.',
+        tag: 'Activity'
+      },
+      {
+        image: 'https://dummyimage.com/300',
+        title: '3 Tour',
+        desc: 'Discover ancient treasures of Rome with a Local Specialist. See Circus Maximus and visit the mighty Colosseum, which bears witness to the limitless courage of the gladiators.',
+        tag: 'Activity',
+
+        optionalExp: {
+          price: '$53',
+          bookDesc:
+            'Optional Experiences are enhancements to your tour and can be booked through your Travel Director while on tour.'
+        }
+      },
+      {
+        image: 'https://dummyimage.com/300',
         title: 'Vatican Museums',
-        desc: 'Explore the Vatican Museums and Sistine Chapel.',
-        marker: 'Activity',
-        included: false
+        desc: 'Discover ancient treasures of Rome with a Local Specialist. See Circus Maximus and visit the mighty Colosseum, which bears witness to the limitless courage of the gladiators.',
+        tag: 'Activity'
+      },
+      {
+        image: 'https://dummyimage.com/300',
+        title: 'Colosseum Tour',
+        desc: 'Discover ancient treasures of Rome with a Local Specialist. See Circus Maximus and visit the mighty Colosseum, which bears witness to the limitless courage of the gladiators.',
+        tag: 'Activity',
+
+        optionalExp: {
+          price: '$53',
+          bookDesc:
+            'Optional Experiences are enhancements to your tour and can be booked through your Travel Director while on tour.'
+        }
+      },
+      {
+        image: 'https://dummyimage.com/300',
+        title: 'Vatican Museums',
+        desc: 'Discover ancient treasures of Rome with a Local Specialist. See Circus Maximus and visit the mighty Colosseum, which bears witness to the limitless courage of the gladiators.',
+        tag: 'Activity'
       }
     ]
   },
@@ -72,11 +116,15 @@ export const ItineraryData: ItineraryType[] = [
     description: 'Discover the charm of Turin with a guided tour.',
     carousel: [
       {
-        image: 'mole-antonelliana.jpg',
+        image: 'https://dummyimage.com/300',
         title: 'Mole Antonelliana',
-        desc: 'Visit the iconic Mole Antonelliana building.',
-        marker: 'Landmark',
-        included: true
+        desc: 'Discover ancient treasures of Rome with a Local Specialist. See Circus Maximus and visit the mighty Colosseum, which bears witness to the limitless courage of the gladiators.',
+        tag: 'Landmark'
+        // optionalExp: {
+        //   price: '$53',
+        //   bookDesc:
+        //     'Optional Experiences are enhancements to your tour and can be booked through your Travel Director while on tour.'
+        // }
       }
     ]
   }

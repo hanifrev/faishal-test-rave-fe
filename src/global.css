@@ -65,3 +65,30 @@ body {
 .height-fill {
   height: -webkit-fill-available;
 }
+
+.react-multiple-carousel__arrow {
+  display: none;
+}
+
+.react-multi-carousel-item {
+  display: flex;
+  justify-content: center;
+  /* @media (min-width: 769px) {
+    margin-right: 1rem;
+  }
+  @media (min-width: 1024px) {
+    margin-right: 2rem;
+    :last-child {
+      margin-right: 0;
+    }
+  } */
+}
+
+.react-multi-carousel-dot-list {
+  padding-bottom: 28px !important;
+}
+@media (min-width: 769px) {
+  .react-multi-carousel-dot-list {
+    display: none !important;
+  }
+}

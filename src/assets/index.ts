@@ -22,6 +22,7 @@ import SeparatorIcon from './separator.svg'
 import ArrivalIcon from './arrival.svg'
 import WelcomeIcon from './welcome.svg'
 import AccomodationIcon from './accomodation.svg'
+import CheckBlackIcon from './checkmark-black.svg'
 
 export {
   Humburger,
@@ -47,5 +48,6 @@ export {
   SeparatorIcon,
   ArrivalIcon,
   WelcomeIcon,
-  AccomodationIcon
+  AccomodationIcon,
+  CheckBlackIcon
 }

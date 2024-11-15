@@ -7,6 +7,7 @@ import {
 } from 'assets'
 import CityList from 'components/elements/CityList'
 import TagHighlight from 'components/elements/TagHighlight'
+import Carousel from 'components/modules/Carousel'
 import { ItineraryData } from 'constants/Itinerarty'
 import React, { useState } from 'react'
 
@@ -41,6 +42,12 @@ const ItinerarySection = () => {
         return null
     }
   }
+  const cardsData = [
+    { title: 'Card 1', description: 'This is the first card.' },
+    { title: 'Card 2', description: 'This is the second card.' },
+    { title: 'Card 3', description: 'This is the third card.' },
+    { title: 'Card 4', description: 'This is the fourth card.' }
+  ]
 
   return (
     <div className="relative pt-2 xl:pt-12 flex flex-col">
@@ -206,7 +213,11 @@ const ItinerarySection = () => {
                     )
                   })}
                 </div>
-                <div>includeexclude</div>
+                <div className="px-0 py-4">
+                  <div className="font-bold text-[22px]">INCLUDE EXCLUDE</div>
+
+                  <Carousel cards={item.carousel} />
+                </div>
               </div>
             )}
             <div className="absolute inset-x-0 bottom-0 border-b border-gray-300 w-screen h-full left-1/2 -translate-x-1/2 md:hidden z-[-1]" />
