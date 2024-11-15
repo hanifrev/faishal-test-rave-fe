@@ -19,69 +19,91 @@ const ItinerarySection = () => {
         <span>Download</span>
         <span>Expand</span>
       </div>
-      <div>
+      <div className="flex flex-col md:gap-4">
         {ItineraryData.map((item, index) => (
-          <div className="relative flex flex-col py-4" key={index}>
+          <div
+            className="relative flex flex-col py-4 md:py-0 md:pr-4 md:border-[0.5px] md:border-[#e6e6e6] md:rounded-md h-auto"
+            key={index}
+          >
+            {/* this is <md border top */}
             <div className="absolute inset-x-0 top-0 border-t border-gray-300 w-screen h-full left-1/2 -translate-x-1/2 md:hidden" />
             <div className="flex flex-row justify-between">
-              <div className="flex flex-col">
-                <span className="text-secondary text-xs mb-[10px]">
-                  Day {index + 1}
-                  {item.highlightTag && (
-                    <TagHighlight text={item.highlightTag} />
-                  )}
-                </span>
-                <span className="text-base mb-[10px] font-bold">
-                  {item.title}
-                </span>
+              <div className="flex flex-row">
+                {/* main image */}
+                <img
+                  className="hidden md:block w-[200px] h-full object-cover"
+                  src={item.image}
+                />
+                {/* itinerary summary */}
+                <div className="flex flex-col md:py-[20.8px] md:px-6">
+                  <span className="text-secondary text-xs md:text-base mb-[10px]">
+                    Day {index + 1}
+                    {item.highlightTag && (
+                      <TagHighlight text={item.highlightTag} />
+                    )}
+                  </span>
+                  <span className="text-base md:text-base mb-[10px] font-bold">
+                    {item.title}
+                  </span>
 
-                <span className="text-secondary text-sm">
-                  {item.city.map((city, cityIndex) => (
-                    <React.Fragment key={city}>
-                      {city}
-                      {cityIndex < item.city.length - 1 && (
-                        <img
-                          src={SeparatorIcon}
-                          alt="separator"
-                          className="inline mx-1 w-4"
-                        />
-                      )}
-                    </React.Fragment>
-                  ))}
-                </span>
+                  <span className="text-secondary text-sm">
+                    {item.city.map((city, cityIndex) => (
+                      <React.Fragment key={city}>
+                        {city}
+                        {cityIndex < item.city.length - 1 && (
+                          <img
+                            src={SeparatorIcon}
+                            alt="separator"
+                            className="inline mx-1 w-4"
+                          />
+                        )}
+                      </React.Fragment>
+                    ))}
+                  </span>
 
-                <div className="flex flex-row gap-4 pt-1">
-                  {item.transferInfo?.map((item, index) => {
-                    return (
-                      <div
-                        className={`${
-                          item.title === 'Welcome' || item.title === 'Transfer'
-                            ? 'flex flex-row gap-3 items-center'
-                            : 'hidden'
-                        }`}
-                        key={index}
-                      >
-                        <img
-                          src={
-                            item.title === 'Welcome'
-                              ? WelcomeIcon
-                              : item.title === 'Transfer'
-                                ? ArrivalIcon
-                                : undefined
-                          }
-                          alt={item.title}
-                          className="w-6"
-                        />
-                        <p className="text-sm">{item.title}</p>
-                      </div>
-                    )
-                  })}
+                  {/* optiona transfer info */}
+                  <div className="flex flex-row gap-4 pt-1 md:pt-2">
+                    {item.transferInfo?.map((item, index) => {
+                      return (
+                        <div
+                          className={`${
+                            item.title === 'Welcome' ||
+                            item.title === 'Transfer'
+                              ? 'flex flex-row gap-3 items-center'
+                              : 'hidden'
+                          }`}
+                          key={index}
+                        >
+                          <img
+                            src={
+                              item.title === 'Welcome'
+                                ? WelcomeIcon
+                                : item.title === 'Transfer'
+                                  ? ArrivalIcon
+                                  : undefined
+                            }
+                            alt={item.title}
+                            className="w-6"
+                          />
+                          <p className="text-sm">{item.title}</p>
+                        </div>
+                      )
+                    })}
+                  </div>
                 </div>
               </div>
-              <img src={ChevronDown} className="w-4" />
+              {/* chevron down */}
+              <div className="flex flex-row items-center gap-2">
+                <span className="text-base font-bold hidden md:block">
+                  See More
+                </span>
+                <img src={ChevronDown} className="w-4" />
+              </div>
             </div>
 
             {/* <div>expand</div> */}
+
+            {/* this is <md border bottom */}
             <div className="absolute inset-x-0 bottom-0 border-b border-gray-300 w-screen h-full left-1/2 -translate-x-1/2 md:hidden" />
           </div>
         ))}

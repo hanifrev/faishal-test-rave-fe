@@ -32,7 +32,8 @@ export const ItineraryData: ItineraryType[] = [
       { title: 'Accommodation', desc: 'Check into your hotel' },
       { title: 'Meals', desc: 'Welcome dinner at the hotel' }
     ],
-    image: 'rome-welcome.jpg',
+    image:
+      'https://lp-cms-production.imgix.net/2024-07/AdobeStock40207802.jpeg',
     description: 'Experience the beauty of Rome from day one.',
     carousel: [
       {
@@ -56,14 +57,15 @@ export const ItineraryData: ItineraryType[] = [
     title: 'Exploring Turin',
     // highlightTag: 'Day Trip',
     city: ['Turin'],
-    transferInfo: [
-      {
-        title: 'Transfer',
-        desc: 'Take a scenic train ride from Rome to Turin.'
-      },
-      { title: 'Accommodation', desc: "Stay at Turin's historic hotel." }
-    ],
-    image: 'turin-city.jpg',
+    // transferInfo: [
+    //   {
+    //     title: 'Transfer',
+    //     desc: 'Take a scenic train ride from Rome to Turin.'
+    //   },
+    //   { title: 'Accommodation', desc: "Stay at Turin's historic hotel." }
+    // ],
+    image:
+      'https://lp-cms-production.imgix.net/2024-07/AdobeStock40207802.jpeg',
     description: 'Discover the charm of Turin with a guided tour.',
     carousel: [
       {
