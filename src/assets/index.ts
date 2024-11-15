@@ -16,6 +16,8 @@ import Tile2 from './tile-2.svg'
 import Tile3 from './tile-3.svg'
 import LocationIcon from './location.svg'
 import CheckmarkIcon from './checkmark.svg'
+import CPlusIcon from './circle-plus.svg'
+import CNegativeIcon from './circle-negative.svg'
 
 export {
   Humburger,
@@ -35,5 +37,7 @@ export {
   Tile2,
   Tile3,
   LocationIcon,
-  CheckmarkIcon
+  CheckmarkIcon,
+  CPlusIcon,
+  CNegativeIcon
 }

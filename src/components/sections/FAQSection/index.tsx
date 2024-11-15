@@ -1,4 +1,5 @@
-import { ChevronDown } from 'assets'
+import { ChevronDown, CNegativeIcon, CPlusIcon } from 'assets'
+import AccordionFAQ from 'components/elements/AccordionFAQ'
 import React, { useState } from 'react'
 
 const FAQSection = () => {
@@ -55,27 +56,15 @@ const FAQSection = () => {
           />
         </button>
       </div>
-      <div className="py-4">
+      <div className="py-4 flex flex-col gap-1">
         {faqData.map((item, index) => (
-          <div key={index} className="faq-item mb-3 border p-4 rounded">
-            <div className="flex justify-between items-center">
-              <h3
-                className="font-semibold text-lg cursor-pointer"
-                onClick={() => toggleItem(index)}
-              >
-                {item.question}
-              </h3>
-              <button
-                onClick={() => toggleItem(index)}
-                className="text-blue-500"
-              >
-                {expandedItems[index] ? '−' : '+'}
-              </button>
-            </div>
-            {expandedItems[index] && (
-              <p className="mt-2 text-gray-600">{item.answer}</p>
-            )}
-          </div>
+          <AccordionFAQ
+            key={index}
+            question={item.question}
+            answer={item.answer}
+            isExpanded={expandedItems[index]}
+            onToggle={() => toggleItem(index)}
+          />
         ))}
       </div>
     </div>
