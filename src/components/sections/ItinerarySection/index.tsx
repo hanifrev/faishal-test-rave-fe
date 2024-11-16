@@ -2,7 +2,9 @@ import {
   AccomodationIcon,
   ArrivalIcon,
   ChevronDown,
+  DownloadIcon,
   MealsIcon,
+  PrintIcon,
   WelcomeIcon
 } from 'assets'
 import CityList from 'components/elements/CityList'
@@ -42,12 +44,6 @@ const ItinerarySection = () => {
         return null
     }
   }
-  const cardsData = [
-    { title: 'Card 1', description: 'This is the first card.' },
-    { title: 'Card 2', description: 'This is the second card.' },
-    { title: 'Card 3', description: 'This is the third card.' },
-    { title: 'Card 4', description: 'This is the fourth card.' }
-  ]
 
   return (
     <div className="relative pt-2 xl:pt-12 flex flex-col">
@@ -60,13 +56,28 @@ const ItinerarySection = () => {
           and 15 cities
         </span>
       </div>
-      <div>
-        <span>Download</span>
+      <div className="flex flex-row justify-between items-center pb-6 md:pt-2">
+        <div className="flex flex-row gap-4">
+          <span className="flex gap-2 cursor-pointer">
+            <img className="w-3 lg:w-5" src={DownloadIcon} />
+            <p className="font-bold text-sm md:text-base text-[#2d5a7b]">
+              Download Itinerary
+            </p>
+          </span>
+          <span className="hidden md:flex gap-2 cursor-pointer">
+            <img className="w-4 lg:w-6" src={PrintIcon} />
+            <p className=" font-bold text-sm  md:text-base  text-[#2d5a7b]">
+              Print Itinerary
+            </p>
+          </span>
+        </div>
         <button
           onClick={() => toggleAll(!allExpanded)}
-          className="flex flex-row gap-2 items-center"
+          className="flex flex-row gap-2 items-center font-bold text-sm  md:text-base cursor-pointer  "
         >
-          {allExpanded ? 'Collapse all days' : 'Expand all days'}
+          <p className="border-dotted border-b border-b-[#e02044] max-w-fit">
+            {allExpanded ? 'Collapse all days' : 'Expand all days'}
+          </p>
           <img
             src={ChevronDown}
             alt="Chevron"
@@ -169,7 +180,6 @@ const ItinerarySection = () => {
               </button>
             </div>
 
-            {/* this is <md border bottom */}
             {expandedItems[index] && (
               <div className="pt-6 pb-10 flex flex-col gap-4 px-2 md:px-10">
                 <div className="flex flex-col md:flex-row-reverse md:justify-between">

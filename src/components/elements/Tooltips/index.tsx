@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface TooltipProps {
-  content: string | undefined
+  content: string | boolean | undefined
 }
 
 const Tooltips: React.FC<TooltipProps> = ({ content }) => {

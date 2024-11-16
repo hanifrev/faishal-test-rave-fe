@@ -1,14 +1,28 @@
 import { CalendarIcon, MealsIcon, PinLocIcon, WalkIcon } from 'assets'
 
-export const DescCards = [
+export interface DescType {
+  title: string
+  mainIcon: any
+  descLine1: {
+    text: string
+    id: string
+    isClickable?: boolean
+    tooltip?: boolean | string
+  }
+  descLine2?: string
+}
+;[]
+
+export const DescCard: DescType[] = [
   {
     title: 'Card Title 1',
     mainIcon: CalendarIcon,
     descLine1: {
       text: 'Description line 1 with icon',
-      showIcon: true,
       id: '#',
-      isClickable: false
+      isClickable: false,
+      tooltip:
+        'Austria, Belgium, Czech, Slovakia, Sweden, Luxemburg, Germany, Swiss, Netherlands'
     },
     descLine2: 'Additional description line 2.'
   },
@@ -17,7 +31,6 @@ export const DescCards = [
     mainIcon: MealsIcon,
     descLine1: {
       text: 'Description line 1 without icon',
-      showIcon: false,
       id: '#',
       isClickable: false
     },
@@ -28,21 +41,18 @@ export const DescCards = [
     mainIcon: WalkIcon,
     descLine1: {
       text: 'Dynamic',
-      showIcon: true,
       id: '#',
-      isClickable: false
+      isClickable: false,
+      tooltip: 'additional information'
     }
-    // descLine2: 'Description line 2 with more details.'
   },
   {
     title: 'Card Title 4',
     mainIcon: PinLocIcon,
     descLine1: {
       text: 'View day-by-day trip itinerary',
-      showIcon: true,
       id: '#101',
       isClickable: true
-    },
-    descLine2: null // No second line
+    }
   }
 ]

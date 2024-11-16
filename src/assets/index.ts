@@ -23,6 +23,8 @@ import ArrivalIcon from './arrival.svg'
 import WelcomeIcon from './welcome.svg'
 import AccomodationIcon from './accomodation.svg'
 import CheckBlackIcon from './checkmark-black.svg'
+import DownloadIcon from './download.svg'
+import PrintIcon from './print.svg'
 
 export {
   Humburger,
@@ -49,5 +51,7 @@ export {
   ArrivalIcon,
   WelcomeIcon,
   AccomodationIcon,
-  CheckBlackIcon
+  CheckBlackIcon,
+  DownloadIcon,
+  PrintIcon
 }

@@ -12,7 +12,7 @@ const TileCard: React.FC<TileProps> = ({ img, text }) => {
       <div className="bg-[#f2f2f2] rounded-full p-4 flex items-center justify-center">
         <img src={img} className="w-6 h-6" alt="Question icon" />
       </div>
-      <div className="font-bold text-xs">{text}</div>
+      <div className="font-bold text-xs md:text-base">{text}</div>
     </div>
   )
 }

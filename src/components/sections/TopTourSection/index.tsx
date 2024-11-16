@@ -3,7 +3,7 @@ import DescriptionCard from 'components/elements/DescriptionCard'
 import MarketingMessage from 'components/elements/MarketingMessage'
 import TripYearSelector from 'components/elements/TripYearSelector'
 import TileHero from 'components/modules/TileHero'
-import { DescCards } from 'constants/DescCards'
+import { DescCard } from 'constants/DescCards'
 
 const TopTourSection = () => {
   return (
@@ -35,8 +35,8 @@ const TopTourSection = () => {
             Pompeii to see a Roman city frozen in time.
           </p>
           <div className="card-grid pt-4 sm:pt-6">
-            {DescCards.map((data, index) => {
-              return <DescriptionCard key={index} data={data} />
+            {DescCard.map((data, index) => {
+              return <DescriptionCard index={index} key={index} data={data} />
             })}
           </div>
           <CTAHero />

@@ -1,23 +1,24 @@
 import { QuestionIcon } from 'assets'
-import React from 'react'
-
-interface DescCardProps {
-  title: string
-  mainIcon: string | any
-  descLine1: {
-    text: string
-    showIcon?: boolean
-    id?: string
-    isClickable?: boolean
-  }
-  descLine2?: string | null
-}
+import { DescType } from 'constants/DescCards'
+import React, { useState } from 'react'
+import Tooltips from '../Tooltips'
 
 interface CardProps {
-  data: DescCardProps
+  data: DescType
+  index: number
 }
 
-const DescriptionCard: React.FC<CardProps> = ({ data }) => {
+const DescriptionCard: React.FC<CardProps> = ({ data, index }) => {
+  const [showTooltip, setShowTooltip] = useState<number | null>(null)
+
+  const tooltipHover = (index: number) => {
+    setShowTooltip(index)
+  }
+
+  const tooltipLeave = () => {
+    setShowTooltip(null)
+  }
+
   return (
     <div className="bg-white">
       <div className="flex items-center mb-2">
@@ -27,15 +28,25 @@ const DescriptionCard: React.FC<CardProps> = ({ data }) => {
         <h2 className="text-base font-bold">{data.title}</h2>
       </div>
 
-      <div className="flex items-center">
+      <div className="flex items-center ">
         <p
-          className={`text-sm md:text-base flex flex-row ${
+          className={`text-sm md:text-base flex flex-row relative ${
             data.descLine1.isClickable == true && 'hidden'
           }`}
         >
           {data.descLine1.text}
-          {data.descLine1.showIcon && (
-            <img src={QuestionIcon} className="pl-1 w-4" />
+          {data.descLine1.tooltip && (
+            <img
+              src={QuestionIcon}
+              className="pl-1 w-4 lg:w-5"
+              onMouseEnter={() => tooltipHover(index)}
+              onMouseLeave={tooltipLeave}
+            />
+          )}
+          {showTooltip == index && (
+            <div className="absolute top-[-32px] right-11 md:-top-4 z-50">
+              <Tooltips content={data.descLine1.tooltip} />
+            </div>
           )}
         </p>
 
