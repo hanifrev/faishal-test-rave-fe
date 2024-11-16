@@ -220,6 +220,7 @@ const ItinerarySection = () => {
                 </div>
               </div>
             )}
+            {/* border bottom  */}
             <div className="absolute inset-x-0 bottom-0 border-b border-gray-300 w-screen h-full left-1/2 -translate-x-1/2 md:hidden z-[-1]" />
           </div>
         ))}

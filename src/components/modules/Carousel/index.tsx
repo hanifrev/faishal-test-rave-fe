@@ -1,6 +1,7 @@
-import { CheckBlackIcon } from 'assets'
+import { CheckBlackIcon, QuestionIcon } from 'assets'
 import ModalCarousel from 'components/elements/ModalCarousel'
 import TagHighlight from 'components/elements/TagHighlight'
+import Tooltips from 'components/elements/Tooltips'
 import React, { useState } from 'react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
@@ -10,7 +11,12 @@ interface Card {
   title: string
   desc: string
   tag?: string
-  optionalExp?: {}
+  optionalExp?: {
+    price?: string
+    category?: string
+    bookDesc?: string
+    addCost?: string
+  }
 }
 
 interface CarouselProps {
@@ -45,6 +51,16 @@ const Carousels: React.FC<CarouselProps> = ({ cards }) => {
 
   const handleCloseModal = () => {
     setSelectedCard(null)
+  }
+
+  const [showTooltip, setShowTooltip] = useState<number | null>(null)
+
+  const tooltipHover = (index: number) => {
+    setShowTooltip(index)
+  }
+
+  const tooltipLeave = () => {
+    setShowTooltip(null)
   }
 
   return (
@@ -91,10 +107,31 @@ const Carousels: React.FC<CarouselProps> = ({ cards }) => {
                 See more
               </span>
             </div>
-            <div className="px-4 pb-4 gap-2 flex items-center">
-              <img src={CheckBlackIcon} className="w-6" />
-              <p className="text-xs">Included With Trip</p>
-            </div>
+            {card.optionalExp ? (
+              <div className="px-4 pb-4 gap-2 flex justify-between items-center relative">
+                <p className="text-xs md:text-sm font-bold">
+                  Additional Cost Applies
+                </p>
+                <img
+                  src={QuestionIcon}
+                  className="w-4 md:w-6"
+                  onMouseEnter={() => tooltipHover(index)}
+                  onMouseLeave={tooltipLeave}
+                />
+                {showTooltip == index && (
+                  <div className="absolute top-[-32px] right-11 md:-top-4 z-50">
+                    <Tooltips content={card.optionalExp.addCost} />
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="px-4 pb-4 gap-2 flex items-center">
+                <img src={CheckBlackIcon} className="w-6" />
+                <p className="text-xs md:text-sm font-bold">
+                  Included With Trip
+                </p>
+              </div>
+            )}
           </div>
         ))}
       </Carousel>
