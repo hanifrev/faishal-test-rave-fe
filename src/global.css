@@ -12,6 +12,8 @@
 body {
   font-family: 'Noto Sans', sans-serif;
   overflow-x: hidden;
+  @apply transition-all;
+  scroll-behavior: smooth;
 }
 
 .the-container {

@@ -46,7 +46,7 @@ const ItinerarySection = () => {
   }
 
   return (
-    <div className="relative pt-2 xl:pt-12 flex flex-col">
+    <div className="relative pt-2 xl:pt-12 flex flex-col" id="itinerary">
       <div className="flex flex-col pt-6 text-center md:text-left">
         <span className="font-bold text-[22px] md:text-[28px] xl:text-[32px] mb-2 leading-[125%]">
           Day by day itinerary
@@ -181,7 +181,7 @@ const ItinerarySection = () => {
             </div>
 
             {expandedItems[index] && (
-              <div className="pt-6 pb-10 flex flex-col gap-4 px-2 md:px-10">
+              <div className="pt-6 pb-10 flex flex-col gap-4 px-2 md:px-10 transition-all">
                 <div className="flex flex-col md:flex-row-reverse md:justify-between">
                   <img
                     src={item.image}

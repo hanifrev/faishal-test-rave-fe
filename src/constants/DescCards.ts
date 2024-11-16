@@ -22,7 +22,7 @@ export const DescCard: DescType[] = [
       id: '#',
       isClickable: false,
       tooltip:
-        'Austria, Belgium, Czech, Slovakia, Sweden, Luxemburg, Germany, Swiss, Netherlands'
+        'Austria, Belgium, Czech, Slovakia, Sweden, Luxemburg, Germany, Swiss, Netherlands, Austria, Belgium, Czech, Slovakia, Sweden, Luxemburg, Germany, Swiss, Netherlands'
     },
     descLine2: 'Additional description line 2.'
   },
@@ -51,7 +51,7 @@ export const DescCard: DescType[] = [
     mainIcon: PinLocIcon,
     descLine1: {
       text: 'View day-by-day trip itinerary',
-      id: '#101',
+      id: '#itinerary',
       isClickable: true
     }
   }

@@ -44,7 +44,7 @@ const DescriptionCard: React.FC<CardProps> = ({ data, index }) => {
             />
           )}
           {showTooltip == index && (
-            <div className="absolute top-[-32px] right-11 md:-top-4 z-50">
+            <div className="absolute top-2 md:top-6  z-50">
               <Tooltips content={data.descLine1.tooltip} />
             </div>
           )}
