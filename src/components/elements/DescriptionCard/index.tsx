@@ -38,7 +38,7 @@ const DescriptionCard: React.FC<CardProps> = ({ data, index }) => {
           {data.descLine1.tooltip && (
             <img
               src={QuestionIcon}
-              className="pl-1 w-4 lg:w-5"
+              className="pl-1 w-4 lg:w-5 cursor-pointer"
               onMouseEnter={() => tooltipHover(index)}
               onMouseLeave={tooltipLeave}
             />

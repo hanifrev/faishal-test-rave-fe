@@ -1,7 +1,7 @@
-type facilitiesType = {
-  title: 'Transfer' | 'Accomodation' | 'Welcome' | 'Meals'
-  desc?: string
-  note?: string
+export interface ItinerarySectionType {
+  mainTitle: string
+  mainDescription: string
+  list: ItineraryType[]
 }
 
 interface ItineraryType {
@@ -26,6 +26,12 @@ interface ItineraryType {
   }[]
 }
 
+type facilitiesType = {
+  title: 'Transfer' | 'Accommodation' | 'Welcome' | 'Meals'
+  desc?: string
+  note?: string
+}
+
 export const ItineraryData: ItineraryType[] = [
   {
     day: '1',
@@ -35,7 +41,7 @@ export const ItineraryData: ItineraryType[] = [
     facilities: [
       { title: 'Transfer', desc: 'Transfer from airport to hotel' },
       { title: 'Welcome', desc: 'Meet and greet at the airport' },
-      { title: 'Accomodation', desc: 'Check into your hotel' },
+      { title: 'Accommodation', desc: 'Check into your hotel' },
       { title: 'Meals', desc: 'Welcome dinner at the hotel' }
     ],
     image:
@@ -105,7 +111,7 @@ export const ItineraryData: ItineraryType[] = [
         desc: 'Take a scenic train ride from Rome to Turin.',
         note: 'this is small notes thath yntkts'
       },
-      { title: 'Accomodation', desc: "Stay at Turin's historic hotel." }
+      { title: 'Accommodation', desc: "Stay at Turin's historic hotel." }
     ],
     image:
       'https://lp-cms-production.imgix.net/2024-07/AdobeStock40207802.jpeg',

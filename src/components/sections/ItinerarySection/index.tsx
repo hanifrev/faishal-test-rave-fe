@@ -1,5 +1,5 @@
 import {
-  AccomodationIcon,
+  AccommodationIcon,
   ArrivalIcon,
   ChevronDown,
   DownloadIcon,
@@ -36,8 +36,8 @@ const ItinerarySection = () => {
         return WelcomeIcon
       case 'Transfer':
         return ArrivalIcon
-      case 'Accomodation':
-        return AccomodationIcon
+      case 'Accommodation':
+        return AccommodationIcon
       case 'Meals':
         return MealsIcon
       default:
@@ -95,10 +95,12 @@ const ItinerarySection = () => {
           >
             {/* this is <md border top */}
             <div className="absolute inset-x-0 top-0 border-t border-gray-300 w-screen h-full left-1/2 -translate-x-1/2 md:hidden z-[-1]" />
+
             <div
-              className={`flex flex-row justify-between z-[9999] relative ${
+              className={`flex flex-row cursor-pointer justify-between z-[9999] relative ${
                 expandedItems[index] && 'md:bg-[#f5f5f5] '
               }`}
+              onClick={() => toggleItem(index)}
             >
               <div
                 className={`absolute inset-x-0 top-[-15px] z-[-1] bg-[#f5f5f5] w-screen height-fill mb-[-5px] left-1/2 -translate-x-1/2 md:hidden ${
@@ -192,39 +194,42 @@ const ItinerarySection = () => {
                     <span className="text-lg md:text-2xl xl:text-[28px] font-bold">
                       {item.title}
                     </span>
-                    <span className="text-sm md:text-base text-secondary leading-[150%]">
+                    <span className="text-sm md:text-base text-secondary leading-[150%] tracking-[0.1px]">
                       {item.description}
                     </span>
+                    <div className="flex flex-col gap-4 lg:gap-6 pt-2 md:pt-3">
+                      {item.facilities?.map((item, index) => {
+                        return (
+                          <div className="flex flex-row gap-2" key={index}>
+                            {getIcon(item.title) && (
+                              <img
+                                src={getIcon(item.title)}
+                                alt="zxc"
+                                className="w-[48px] h-auto px-[10.5px]"
+                              />
+                            )}
+                            <span className="text-sm md:text-base">
+                              <b>{item.title}</b> {item.desc}
+                              {item.note && (
+                                <>
+                                  <br />
+                                  <span className=" text-secondary text-[10px] md:text-xs">
+                                    {item.note}
+                                  </span>
+                                </>
+                              )}
+                            </span>
+                          </div>
+                        )
+                      })}
+                    </div>
                   </div>
                 </div>
-                <div className="flex flex-col gap-2">
-                  {item.facilities?.map((item, index) => {
-                    return (
-                      <div className="flex flex-row gap-2" key={index}>
-                        {getIcon(item.title) && (
-                          <img
-                            src={getIcon(item.title)}
-                            alt="zxc"
-                            className="w-[44px] h-auto px-[10.5px]"
-                          />
-                        )}
-                        <span className="text-sm md:text-base">
-                          <b>{item.title}</b> {item.desc}
-                          {item.note && (
-                            <>
-                              <br />
-                              <span className=" text-secondary text-[10px] md:text-xs">
-                                {item.note}
-                              </span>
-                            </>
-                          )}
-                        </span>
-                      </div>
-                    )
-                  })}
-                </div>
+
                 <div className="px-0 py-4">
-                  <div className="font-bold text-[22px]">INCLUDE EXCLUDE</div>
+                  <div className="font-bold text-[22px] text-center md:text-left pb-6">
+                    Included and optional experiences
+                  </div>
 
                   <Carousel cards={item.carousel} />
                 </div>

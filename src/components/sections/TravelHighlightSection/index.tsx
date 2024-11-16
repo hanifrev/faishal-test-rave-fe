@@ -12,7 +12,7 @@ const TravelHighlightSection = () => {
         <div className="text-sm mt-2 text-center md:text-left md:text-lef">
           Specific transfer information can be found here:
         </div>
-        <div className="pt-4 hidden lg:block">
+        <div className="pt-4  mx-0 hidden md:block">
           <Button text="Airport Transfer" bgColor="bg-[#A7282E]" />
         </div>
       </div>
@@ -23,7 +23,7 @@ const TravelHighlightSection = () => {
         <TravelHighCard />
         <TravelHighCard />
       </div>
-      <div className="pt-4 block mx-auto lg:hidden">
+      <div className="pt-4 block mx-auto md:hidden">
         <Button text="Airport Transfer" bgColor="bg-[#A7282E]" />
       </div>
     </div>

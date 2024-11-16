@@ -10,6 +10,7 @@ const SightseeCard: React.FC<SightProps> = ({ text }) => {
     <div className="flex flex-row items-center width-list-sight">
       <img src={LocationIcon} className="w-10 mr-6" />
       <p className="text-sm">
+        {/* make the first word bold */}
         Explore Rome, Pompeii, Capri, Assisi and Florence{' '}
       </p>
     </div>

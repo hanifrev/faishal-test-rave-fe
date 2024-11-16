@@ -21,7 +21,7 @@ import CNegativeIcon from './circle-negative.svg'
 import SeparatorIcon from './separator.svg'
 import ArrivalIcon from './arrival.svg'
 import WelcomeIcon from './welcome.svg'
-import AccomodationIcon from './accomodation.svg'
+import AccommodationIcon from './Accommodation.svg'
 import CheckBlackIcon from './checkmark-black.svg'
 import DownloadIcon from './download.svg'
 import PrintIcon from './print.svg'
@@ -50,7 +50,7 @@ export {
   SeparatorIcon,
   ArrivalIcon,
   WelcomeIcon,
-  AccomodationIcon,
+  AccommodationIcon,
   CheckBlackIcon,
   DownloadIcon,
   PrintIcon
