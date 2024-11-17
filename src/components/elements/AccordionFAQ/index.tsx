@@ -1,9 +1,11 @@
 import React from 'react'
 import { CNegativeIcon, CPlusIcon } from 'assets'
+import { PortableText } from '@portabletext/react'
+import PortableTextReact from '../PortableTextReact'
 
 interface AccordionProps {
   question: string
-  answer: string
+  answer: string | any
   isExpanded: boolean
   onToggle: () => void
 }
@@ -11,9 +13,11 @@ interface AccordionProps {
 const AccordionFAQ: React.FC<AccordionProps> = ({
   question,
   answer,
-  isExpanded,
+  isExpanded = false,
   onToggle
 }) => {
+  console.log(isExpanded)
+  console.log(onToggle)
   return (
     <div>
       <div
@@ -39,7 +43,7 @@ const AccordionFAQ: React.FC<AccordionProps> = ({
 
       {isExpanded && (
         <p className="p-[10px] lg:px-5 border border-t-0 border-[#2d5a7b] transition-all">
-          {answer}
+          <PortableTextReact data={answer} />
         </p>
       )}
     </div>

@@ -4,8 +4,16 @@ import MarketingMessage from 'components/elements/MarketingMessage'
 import TripYearSelector from 'components/elements/TripYearSelector'
 import TileHero from 'components/modules/TileHero'
 import { DescCard } from 'constants/DescCards'
+import { useGetTourSummaryQuery } from 'lib/services/api'
+import { urlFor } from 'lib/sanityImage'
+import { PortableText } from '@portabletext/react'
+import PortableTextReact from 'components/elements/PortableTextReact'
 
 const TopTourSection = () => {
+  const { data, isLoading, isError } = useGetTourSummaryQuery()
+  console.log(data)
+  console.log(data?.tileHero.map((x) => x))
+
   return (
     <div className="relative pb-6">
       <div className="relative flex flex-col md:flex-row md:justify-end h-auto md:h-[1000px] lg:h-[900px] xl:h-[830px] xl2:h-[775px]">
@@ -15,7 +23,9 @@ const TopTourSection = () => {
        "
         >
           <img
-            src="https://www.trafalgar.com/media/x0th5lxn/best-italy-guided-tour-2.jpg?center=0.5%2C0.5&format=webp&mode=crop&width=1200&height=1200&quality=80"
+            src={
+              data?.heroImage ? urlFor(data.heroImage.asset._ref) : undefined
+            }
             alt="Hero"
             className="w-full h-full object-cover"
           />
@@ -25,28 +35,30 @@ const TopTourSection = () => {
         <div className="relative z-10 flex flex-col justify-center pt-4 pb-6 bg-white md:w-1/2">
           <TripYearSelector />
           <h1 className="text-[22px] md:text-[28px] xl:text-[32px] font-bold leading-[125%] tracking-[-0.4px] pb-4 xl:pb-7">
-            13-Day Italy Sightseeing Tour of Rome, Lake Como and Sorrento
+            {isLoading
+              ? 'Loading...'
+              : data?.heroTitle || 'No title availabe, check CMS'}
           </h1>
           <p className="text-sm md:text-base leading-[150%] md:leading-[170%] md:tracking-[-0.1px]">
-            Discover the Best of Italy, from the ancient treasures of Rome to
-            Renaissance Florence and everything in between. Imagine staying
-            overnight in a renovated Franciscan monastery in Assisi, lapping up
-            the chic lifestyle on Capri, and taking a private guided visit to
-            Pompeii to see a Roman city frozen in time.
+            {isLoading
+              ? 'Loading...'
+              : data?.heroDescription || 'No description availabe, check CMS'}
           </p>
           <div className="card-grid pt-4 sm:pt-6">
-            {DescCard.map((data, index) => {
+            {isLoading && <p>Loading...</p>}
+            {data?.cardDescription.map((data, index) => {
               return <DescriptionCard index={index} key={index} data={data} />
             })}
+            {!data?.cardDescription.length && <p>No data availabe</p>}
           </div>
           <CTAHero />
           <div className="text-sm md:text-base border-b md:border-none h-[39px] md:h-0 ">
-            <b>Trip Code:</b> ITBO
+            <b>Trip Code: {data?.tripCode}</b>
           </div>
         </div>
       </div>
-      <TileHero />
-      <MarketingMessage />
+      <TileHero data={data?.tileHero || []} />
+      <MarketingMessage data={data?.marketingMessage || []} />
     </div>
   )
 }

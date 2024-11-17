@@ -1,29 +1,27 @@
 import { ChevronDown, CNegativeIcon, CPlusIcon } from 'assets'
 import AccordionFAQ from 'components/elements/AccordionFAQ'
-import React, { useState } from 'react'
+import { useGetFAQQuery } from 'lib/services/api'
+import React, { useEffect, useState } from 'react'
 
 const FAQSection = () => {
-  const faqData = [
-    {
-      question: 'What is your return policy?',
-      answer: 'You have 30 days to return your purchase for a full refund.'
-    },
-    {
-      question: 'How do I track my order?',
-      answer:
-        'You can track your order through the tracking link sent to your email.'
-    },
-    {
-      question: 'Can I change my shipping address?',
-      answer:
-        'Yes, please contact customer support within 24 hours to update your address.'
-    }
-  ]
+  const { data, isLoading, isError } = useGetFAQQuery()
+  console.log(data?.faqList)
+
+  const faqData = data?.faqList ?? []
+
+  console.log(faqData.map((x) => x.answer))
 
   const [expandedItems, setExpandedItems] = useState<boolean[]>(
     faqData.map(() => false)
   )
 
+  useEffect(() => {
+    if (faqData.length > 0) {
+      setExpandedItems(faqData.map(() => false))
+    }
+  }, [faqData])
+
+  // this must be false on initial load, if it's true it will be error on accordion
   const allExpanded = expandedItems.every((item) => item)
 
   const toggleAll = (expand: boolean) => {
@@ -36,10 +34,15 @@ const FAQSection = () => {
     )
   }
 
+  console.log(toggleAll, '===')
+  console.log(allExpanded, 'EXPAND ALL')
+
   return (
     <div className="flex flex-col">
       <div className="font-bold text-[22px] pb-2">
-        Frequently asked questions
+        {isLoading
+          ? 'Loading...'
+          : data?.mainTitle || 'No title availabe, check CMS'}
       </div>
       <div className="py-[15px] text-right text-base font-bold flex justify-end">
         <button
@@ -57,7 +60,7 @@ const FAQSection = () => {
         </button>
       </div>
       <div className="py-4 flex flex-col gap-1">
-        {faqData.map((item, index) => (
+        {data?.faqList.map((item, index) => (
           <AccordionFAQ
             key={index}
             question={item.question}
@@ -66,6 +69,7 @@ const FAQSection = () => {
             onToggle={() => toggleItem(index)}
           />
         ))}
+        {isError && <span>Error fetching data</span>}
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 export interface AboutSectionType {
   mainTitle: string
-  sightsHighlight: {
+  sightseeingHighlight: {
     title: string
     list: string[]
   }

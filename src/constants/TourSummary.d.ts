@@ -1,5 +1,9 @@
 export interface TourSumSectionType {
-  heroImage: string
+  heroImage: {
+    asset: {
+      _ref: string
+    }
+  }
   heroTitle: string
   heroDescription: string
   cardDescription: {
@@ -19,5 +23,5 @@ export interface TourSumSectionType {
   }
   tripCode: string
   tileHero: string[]
-  marketingMessage: string
+  marketingMessage: any
 }

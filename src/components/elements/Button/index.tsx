@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface BtnProps {
-  text: string
+  text: string | any
   bgColor?: string
   textColor?: string
 }
