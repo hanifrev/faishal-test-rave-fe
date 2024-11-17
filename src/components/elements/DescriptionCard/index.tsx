@@ -1,7 +1,13 @@
-import { QuestionIcon } from 'assets'
-import { DescType } from 'constants/DescCards'
 import React, { useState } from 'react'
 import Tooltips from '../Tooltips'
+import {
+  CalendarIcon,
+  MealsIcon,
+  WalkIcon,
+  PinLocIcon,
+  QuestionIcon
+} from 'assets'
+import { DescType } from 'constants/TourSummary'
 
 interface CardProps {
   data: DescType
@@ -19,11 +25,26 @@ const DescriptionCard: React.FC<CardProps> = ({ data, index }) => {
     setShowTooltip(null)
   }
 
+  const getIcon = (index: number): number | null | any => {
+    switch (index) {
+      case 0:
+        return CalendarIcon
+      case 1:
+        return MealsIcon
+      case 2:
+        return WalkIcon
+      case 3:
+        return PinLocIcon
+      default:
+        return null
+    }
+  }
+
   return (
     <div className="bg-white">
       <div className="flex items-center mb-2">
         <span className="text-2xl mr-2">
-          <img src={data.mainIcon} className="w-3" />
+          <img src={getIcon(index)} className="w-4" />
         </span>
         <h2 className="text-base font-bold">{data.title}</h2>
       </div>
@@ -44,7 +65,7 @@ const DescriptionCard: React.FC<CardProps> = ({ data, index }) => {
             />
           )}
           {showTooltip == index && (
-            <div className="absolute top-2 md:top-6  z-50">
+            <div className="absolute top-3 md:top-6  z-50">
               <Tooltips content={data.descLine1.tooltip} />
             </div>
           )}

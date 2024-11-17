@@ -16,8 +16,6 @@ const AccordionFAQ: React.FC<AccordionProps> = ({
   isExpanded = false,
   onToggle
 }) => {
-  console.log(isExpanded)
-  console.log(onToggle)
   return (
     <div>
       <div

@@ -10,7 +10,7 @@ const CityList: React.FC<CityProp> = ({ cities, classNames }) => {
   return (
     <span className={`text-secondary text-sm ${classNames}`}>
       {cities.map((city, index) => (
-        <React.Fragment key={city}>
+        <React.Fragment key={index}>
           {city}
           {index < cities.length - 1 && (
             <img

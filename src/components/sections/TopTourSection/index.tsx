@@ -3,16 +3,11 @@ import DescriptionCard from 'components/elements/DescriptionCard'
 import MarketingMessage from 'components/elements/MarketingMessage'
 import TripYearSelector from 'components/elements/TripYearSelector'
 import TileHero from 'components/modules/TileHero'
-import { DescCard } from 'constants/DescCards'
 import { useGetTourSummaryQuery } from 'lib/services/api'
 import { urlFor } from 'lib/sanityImage'
-import { PortableText } from '@portabletext/react'
-import PortableTextReact from 'components/elements/PortableTextReact'
 
 const TopTourSection = () => {
   const { data, isLoading, isError } = useGetTourSummaryQuery()
-  console.log(data)
-  console.log(data?.tileHero.map((x) => x))
 
   return (
     <div className="relative pb-6">
@@ -34,6 +29,7 @@ const TopTourSection = () => {
         {/* Summary section */}
         <div className="relative z-10 flex flex-col justify-center pt-4 pb-6 bg-white md:w-1/2">
           <TripYearSelector />
+          {isError && <>Error fetching data</>}
           <h1 className="text-[22px] md:text-[28px] xl:text-[32px] font-bold leading-[125%] tracking-[-0.4px] pb-4 xl:pb-7">
             {isLoading
               ? 'Loading...'
@@ -45,15 +41,15 @@ const TopTourSection = () => {
               : data?.heroDescription || 'No description availabe, check CMS'}
           </p>
           <div className="card-grid pt-4 sm:pt-6">
-            {isLoading && <p>Loading...</p>}
+            {isLoading && <>Loading...</>}
             {data?.cardDescription.map((data, index) => {
               return <DescriptionCard index={index} key={index} data={data} />
             })}
-            {!data?.cardDescription.length && <p>No data availabe</p>}
+            {!data?.cardDescription.length && <>No data availabe</>}
           </div>
           <CTAHero />
           <div className="text-sm md:text-base border-b md:border-none h-[39px] md:h-0 ">
-            <b>Trip Code: {data?.tripCode}</b>
+            <b>Trip Code:</b> {data?.tripCode}
           </div>
         </div>
       </div>

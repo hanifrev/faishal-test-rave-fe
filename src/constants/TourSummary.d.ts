@@ -25,3 +25,16 @@ export interface TourSumSectionType {
   tileHero: string[]
   marketingMessage: any
 }
+
+export interface DescType {
+  title: string
+  mainIcon: any
+  descLine1: {
+    text: string
+    id: string
+    isClickable?: boolean
+    tooltip?: boolean | string
+  }
+  descLine2?: string
+}
+;[]

@@ -22,7 +22,7 @@ import { PortableText } from '@portabletext/react'
 import { PortableTextBlock } from '@portabletext/types'
 
 interface PortableProps {
-  data: PortableTextBlock[]
+  data: PortableTextBlock[] | any
 }
 
 const PortableTextReact: React.FC<PortableProps> = ({ data }) => {

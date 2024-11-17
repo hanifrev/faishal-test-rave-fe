@@ -5,11 +5,8 @@ import React, { useEffect, useState } from 'react'
 
 const FAQSection = () => {
   const { data, isLoading, isError } = useGetFAQQuery()
-  console.log(data?.faqList)
 
   const faqData = data?.faqList ?? []
-
-  console.log(faqData.map((x) => x.answer))
 
   const [expandedItems, setExpandedItems] = useState<boolean[]>(
     faqData.map(() => false)
@@ -33,9 +30,6 @@ const FAQSection = () => {
       prev.map((item, i) => (i === index ? !item : item))
     )
   }
-
-  console.log(toggleAll, '===')
-  console.log(allExpanded, 'EXPAND ALL')
 
   return (
     <div className="flex flex-col">

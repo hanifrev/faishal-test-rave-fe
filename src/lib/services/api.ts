@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { AboutSectionType } from 'constants/Abouts'
 import { FAQType } from 'constants/FAQs'
+import { ItinerarySectionsType, ItineraryType } from 'constants/Itinerary'
 import { TourSumSectionType } from 'constants/TourSummary'
 
 const projectId = import.meta.env.VITE_PROJECT_ID
@@ -44,9 +45,23 @@ export const apiSlice = createApi({
       }),
       transformResponse: (response: { result: AboutSectionType[] }) =>
         response.result?.[0]
+    }),
+    getItinerary: builder.query<ItinerarySectionsType, void>({
+      query: () => ({
+        url: '',
+        params: {
+          query: `*[_type == "itinerarySection"]`
+        }
+      }),
+      transformResponse: (response: { result: ItinerarySectionsType[] }) =>
+        response.result?.[0]
     })
   })
 })
 
-export const { useGetTourSummaryQuery, useGetFAQQuery, useGetAboutQuery } =
-  apiSlice
+export const {
+  useGetTourSummaryQuery,
+  useGetFAQQuery,
+  useGetAboutQuery,
+  useGetItineraryQuery
+} = apiSlice

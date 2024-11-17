@@ -8,20 +8,32 @@ import {
   WelcomeIcon
 } from 'assets'
 import CityList from 'components/elements/CityList'
+import PortableTextReact from 'components/elements/PortableTextReact'
 import TagHighlight from 'components/elements/TagHighlight'
 import Carousel from 'components/modules/Carousel'
-import { ItineraryData } from 'constants/Itinerarty'
-import React, { useState } from 'react'
+import { urlFor } from 'lib/sanityImage'
+import { useGetItineraryQuery } from 'lib/services/api'
+import { useEffect, useState } from 'react'
 
 const ItinerarySection = () => {
+  const { data, isLoading, isError } = useGetItineraryQuery()
+
+  const itineraryList = data?.list || []
+
   const [expandedItems, setExpandedItems] = useState<boolean[]>(
-    ItineraryData.map(() => false)
+    itineraryList.map(() => false)
   )
+
+  useEffect(() => {
+    if (itineraryList.length > 0) {
+      setExpandedItems(itineraryList.map(() => false))
+    }
+  }, [itineraryList])
 
   const allExpanded = expandedItems.every((item) => item)
 
   const toggleAll = (expand: boolean) => {
-    setExpandedItems(ItineraryData.map(() => expand))
+    setExpandedItems(itineraryList.map(() => expand))
   }
 
   const toggleItem = (index: number) => {
@@ -38,7 +50,7 @@ const ItinerarySection = () => {
         return ArrivalIcon
       case 'Accommodation':
         return AccommodationIcon
-      case 'Meals':
+      case 'Included Meals':
         return MealsIcon
       default:
         return null
@@ -49,11 +61,14 @@ const ItinerarySection = () => {
     <div className="relative pt-2 xl:pt-12 flex flex-col" id="itinerary">
       <div className="flex flex-col pt-6 text-center md:text-left">
         <span className="font-bold text-[22px] md:text-[28px] xl:text-[32px] mb-2 leading-[125%]">
-          Day by day itinerary
+          {isLoading
+            ? 'Loading...'
+            : data?.mainTitle || 'No title availabe, check CMS'}
         </span>
         <span className="text-sm leading-[150%] tracking-[-0.1px] mb-5">
-          13 days itinerary trip from <b>Rome to Rome</b> visiting 2 countries
-          and 15 cities
+          {isLoading
+            ? 'Loading...'
+            : data?.mainDescription || 'No description availabe, check CMS'}
         </span>
       </div>
       <div className="flex flex-row justify-between items-center pb-6 md:pt-2">
@@ -88,12 +103,12 @@ const ItinerarySection = () => {
         </button>
       </div>
       <div className="flex flex-col md:gap-4">
-        {ItineraryData.map((item, index) => (
+        {isError && <>Error fetching data</>}
+        {itineraryList.map((item, index) => (
           <div
             className="relative flex flex-col py-4 md:py-0 md:pr-0 md:border-[0.5px] md:border-[#e6e6e6] md:rounded-md h-auto"
             key={index}
           >
-            {/* this is <md border top */}
             <div className="absolute inset-x-0 top-0 border-t border-gray-300 w-screen h-full left-1/2 -translate-x-1/2 md:hidden z-[-1]" />
 
             <div
@@ -113,7 +128,8 @@ const ItinerarySection = () => {
                   className={`hidden md:block w-[200px] h-full object-cover  ${
                     expandedItems[index] && 'md:hidden'
                   }`}
-                  src={item.image}
+                  // data?.heroImage ? urlFor(data.heroImage.asset._ref) : undefined
+                  src={urlFor(item.image.asset._ref)}
                 />
                 {/* itinerary summary */}
                 <div className="flex flex-col md:py-[20.8px] md:px-6">
@@ -167,7 +183,7 @@ const ItinerarySection = () => {
               {/* chevron down */}
               <button
                 className="flex flex-row items-center gap-2 md:pr-4"
-                onClick={() => toggleItem(index)}
+                // onClick={(() => toggleItem(index), console.log('test'))}
               >
                 <span className="text-base font-bold hidden md:block">
                   See More
@@ -186,7 +202,7 @@ const ItinerarySection = () => {
               <div className="pt-6 pb-10 flex flex-col gap-4 px-2 md:px-10 transition-all">
                 <div className="flex flex-col md:flex-row-reverse md:justify-between">
                   <img
-                    src={item.image}
+                    src={urlFor(item.image.asset._ref)}
                     className="w-auto h-auto pb-3 rounded-md sm:h-full md:w-full max-w-[1600px] md:max-h-[190px] lg:max-h-[230px] xl:max-h-[283px] xl2:max-h-[324px] object-cover"
                   />
                   <div className="flex flex-col gap-4 md:basis-full md:pr-10">
@@ -195,7 +211,7 @@ const ItinerarySection = () => {
                       {item.title}
                     </span>
                     <span className="text-sm md:text-base text-secondary leading-[150%] tracking-[0.1px]">
-                      {item.description}
+                      <PortableTextReact data={item.description} />
                     </span>
                     <div className="flex flex-col gap-4 lg:gap-6 pt-2 md:pt-3">
                       {item.facilities?.map((item, index) => {

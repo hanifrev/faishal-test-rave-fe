@@ -3,7 +3,6 @@ import { useGetAboutQuery } from 'lib/services/api'
 
 const SightseeingHighlightSection = () => {
   const { data, isLoading, isError } = useGetAboutQuery()
-  console.log(data)
   const theData = data?.sightseeingHighlight
 
   return (

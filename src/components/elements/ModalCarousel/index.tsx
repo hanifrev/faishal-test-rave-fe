@@ -1,8 +1,13 @@
 import { CloseIcon } from 'assets'
+import { urlFor } from 'lib/sanityImage'
 import React from 'react'
 
 interface Card {
-  image?: string
+  image: {
+    asset: {
+      _ref: string
+    }
+  }
   title: string
   desc: string
   tag?: string
@@ -10,6 +15,7 @@ interface Card {
     price?: string
     category?: string
     bookDesc?: string
+    addCost?: string
   }
 }
 
@@ -49,7 +55,7 @@ const ModalCarousel: React.FC<ModalCarouselProps> = ({ card, onClose }) => {
         />
         <h2 className="pt-6 md:pt-10 font-bold text-base">{card.title}</h2>
         <img
-          src={card.image}
+          src={urlFor(card.image.asset._ref)}
           alt={card.title}
           className="w-full h-[300px] md:h-[395px] xl:h-[452px] object-cover my-4 rounded-md"
         />

@@ -7,6 +7,7 @@ const AboutHeader = () => {
       {isLoading
         ? 'Loading...'
         : data?.mainTitle || 'No title availabe, check CMS'}
+      {isError && <>Error fetching data</>}
     </div>
   )
 }

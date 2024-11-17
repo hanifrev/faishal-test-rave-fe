@@ -1,13 +1,19 @@
 import { CheckBlackIcon, QuestionIcon } from 'assets'
+import CarouselBtn from 'components/elements/CarouselBtn'
 import ModalCarousel from 'components/elements/ModalCarousel'
 import TagHighlight from 'components/elements/TagHighlight'
 import Tooltips from 'components/elements/Tooltips'
+import { urlFor } from 'lib/sanityImage'
 import React, { useState } from 'react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
 interface Card {
-  image?: string
+  image: {
+    asset: {
+      _ref: string
+    }
+  }
   title: string
   desc: string
   tag?: string
@@ -64,18 +70,20 @@ const Carousels: React.FC<CarouselProps> = ({ cards }) => {
   }
 
   return (
-    <div>
+    <div className="gd-carousel-wrapper">
       <Carousel
         responsive={responsive}
         showDots
         infinite={false}
         keyBoardControl
-        containerClass="carousel-container"
+        containerClass="gd-carousel"
         itemClass="carousel-item-padding"
         renderDotsOutside
         customTransition="all 0.5s"
         transitionDuration={500}
-        slidesToSlide={2}
+        slidesToSlide={1}
+        // arrows
+        renderButtonGroupOutside
       >
         {cards.map((card, index) => (
           <div
@@ -90,7 +98,7 @@ const Carousels: React.FC<CarouselProps> = ({ cards }) => {
               className="absolute top-2 left-[-5px]"
             />
             <img
-              src={card.image}
+              src={urlFor(card.image.asset._ref)}
               className="h-[166px] sm:h-[220px] object-cover z-[-1]"
             />
             <div className="flex flex-col gap-2 p-4">
@@ -135,6 +143,9 @@ const Carousels: React.FC<CarouselProps> = ({ cards }) => {
           </div>
         ))}
       </Carousel>
+      {/* <div className="font-bold text-center pt-7">
+        {} of {cards.length}
+      </div> */}
       {selectedCard && (
         <ModalCarousel card={selectedCard} onClose={handleCloseModal} />
       )}
