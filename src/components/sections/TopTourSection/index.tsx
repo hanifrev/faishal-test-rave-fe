@@ -4,7 +4,7 @@ import MarketingMessage from 'components/elements/MarketingMessage'
 import TripYearSelector from 'components/elements/TripYearSelector'
 import TileHero from 'components/modules/TileHero'
 import { useGetTourSummaryQuery } from 'lib/services/api'
-import { urlFor } from 'lib/sanityImage'
+import { urlFor } from 'lib/sanityClient'
 
 const TopTourSection = () => {
   const { data, isLoading, isError } = useGetTourSummaryQuery()
@@ -47,7 +47,7 @@ const TopTourSection = () => {
             })}
             {!data?.cardDescription.length && <>No data availabe</>}
           </div>
-          <CTAHero />
+          {data?.heroCTA && <CTAHero data={data.heroCTA} />}
           <div className="text-sm md:text-base border-b md:border-none h-[39px] md:h-0 ">
             <b>Trip Code:</b> {data?.tripCode}
           </div>

@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { AboutSectionType } from 'constants/Abouts'
 import { FAQType } from 'constants/FAQs'
-import { ItinerarySectionsType, ItineraryType } from 'constants/Itinerary'
+import { ItinerarySectionsType } from 'constants/Itinerary'
 import { TourSumSectionType } from 'constants/TourSummary'
 
 const projectId = import.meta.env.VITE_PROJECT_ID

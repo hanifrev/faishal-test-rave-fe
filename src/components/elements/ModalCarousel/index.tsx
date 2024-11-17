@@ -1,5 +1,5 @@
 import { CloseIcon } from 'assets'
-import { urlFor } from 'lib/sanityImage'
+import { urlFor } from 'lib/sanityClient'
 import React from 'react'
 
 interface Card {

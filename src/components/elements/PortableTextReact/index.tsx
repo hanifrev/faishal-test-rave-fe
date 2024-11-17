@@ -1,22 +1,3 @@
-// interface PortableTextProps {
-//   data: {
-//     markDefs: {
-//       _type: string
-//       href: string
-//       _key: string
-//     }[]
-//     children: {
-//       _type: string
-//       marks: string[]
-//       text: string
-//       _key: string
-//     }[]
-//     _type: string
-//     style: string
-//     _key: string
-//   }[]
-// }
-
 import React from 'react'
 import { PortableText } from '@portabletext/react'
 import { PortableTextBlock } from '@portabletext/types'
@@ -55,7 +36,8 @@ const PortableTextReact: React.FC<PortableProps> = ({ data }) => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: 'blue', textDecoration: 'underline' }}
+                  className="text-blue-500"
+                  style={{ textDecoration: 'underline' }}
                 >
                   {children}
                 </a>

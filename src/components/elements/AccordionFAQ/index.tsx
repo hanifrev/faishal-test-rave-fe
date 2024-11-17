@@ -1,6 +1,5 @@
 import React from 'react'
 import { CNegativeIcon, CPlusIcon } from 'assets'
-import { PortableText } from '@portabletext/react'
 import PortableTextReact from '../PortableTextReact'
 
 interface AccordionProps {
@@ -25,11 +24,14 @@ const AccordionFAQ: React.FC<AccordionProps> = ({
             : ''
         }`}
       >
-        <div className="flex justify-between items-center">
-          <div className="font-bold text-lg cursor-pointer" onClick={onToggle}>
+        <div
+          className="flex justify-between items-center cursor-pointer"
+          onClick={onToggle}
+        >
+          <div className="font-bold text-lg cursor-pointer w-[87%] sm:w-full">
             {question}
           </div>
-          <button onClick={onToggle} className="text-blue-500">
+          <button className="text-blue-500">
             {isExpanded ? (
               <img className="w-9" src={CNegativeIcon} alt="Collapse" />
             ) : (

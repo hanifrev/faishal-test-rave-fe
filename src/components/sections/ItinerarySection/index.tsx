@@ -11,7 +11,7 @@ import CityList from 'components/elements/CityList'
 import PortableTextReact from 'components/elements/PortableTextReact'
 import TagHighlight from 'components/elements/TagHighlight'
 import Carousel from 'components/modules/Carousel'
-import { urlFor } from 'lib/sanityImage'
+import { urlFor } from 'lib/sanityClient'
 import { useGetItineraryQuery } from 'lib/services/api'
 import { useEffect, useState } from 'react'
 
@@ -103,6 +103,7 @@ const ItinerarySection = () => {
         </button>
       </div>
       <div className="flex flex-col md:gap-4">
+        {/* Itinerary dropdown and carousel */}
         {isError && <>Error fetching data</>}
         {itineraryList.map((item, index) => (
           <div
@@ -149,7 +150,7 @@ const ItinerarySection = () => {
 
                   <CityList cities={item.city} classNames="lg:hidden" />
 
-                  {/* optiona transfer info */}
+                  {/* facilities info */}
                   <div className="flex flex-row gap-4 pt-1 md:pt-2">
                     {item.facilities?.map((item, index) => {
                       return (
@@ -198,6 +199,7 @@ const ItinerarySection = () => {
               </button>
             </div>
 
+            {/* expanded items */}
             {expandedItems[index] && (
               <div className="pt-6 pb-10 flex flex-col gap-4 px-2 md:px-10 transition-all">
                 <div className="flex flex-col md:flex-row-reverse md:justify-between">

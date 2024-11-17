@@ -1,78 +1,31 @@
-# React Tailwindcss Boilerplate build with Vite
+CMS: https://faishalrave.sanity.studio/
 
-This is a boilerplate build with Vite, React 18, TypeScript, Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier.
+## How to run this app locally
 
-## What is inside?
-
-This project uses many tools like:
-
-- [Vite](https://vitejs.dev)
-- [ReactJS](https://reactjs.org)
-- [TypeScript](https://www.typescriptlang.org)
-- [Vitest](https://vitest.dev)
-- [Testing Library](https://testing-library.com)
-- [Tailwindcss](https://tailwindcss.com)
-- [Eslint](https://eslint.org)
-- [Prettier](https://prettier.io)
-
-## Getting Started
-
-### Install
-
-Create the project.
+#### Clone this repo into your machine
 
 ```bash
-pnpm dlx degit joaopaulomoraes/reactjs-vite-tailwindcss-boilerplate my-app
+git clone https://github.com/hanifrev/faishal-test-rave-fe.git
 ```
 
-Access the project directory.
-
-```bash
-cd my-app
-```
-
-Install dependencies.
+once it done, install it
 
 ```bash
 pnpm install
 ```
 
-Serve with hot reload at <http://localhost:5173>.
+After installation complete, please copy <b>.env</b> file into the root of this repo,
+
+#### Run this app
 
 ```bash
 pnpm run dev
 ```
 
-### Lint
+Open <http://localhost:5173> in your browser to run it
 
-```bash
-pnpm run lint
-```
-
-### Typecheck
-
-```bash
-pnpm run typecheck
-```
-
-### Build
+#### Build
 
 ```bash
 pnpm run build
 ```
-
-### Test
-
-```bash
-pnpm run test
-```
-
-View and interact with your tests via UI.
-
-```bash
-pnpm run test:ui
-```
-
-## License
-
-This project is licensed under the MIT License.

@@ -5,9 +5,7 @@ import {
   AccommodationIcon,
   ArrivalIcon,
   ChevronDown,
-  DownloadIcon,
   MealsIcon,
-  PrintIcon,
   WelcomeIcon
 } from 'assets'
 
