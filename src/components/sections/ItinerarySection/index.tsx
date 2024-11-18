@@ -139,7 +139,10 @@ const ItinerarySection = () => {
                   <span className="text-secondary text-xs md:text-base mb-[10px]">
                     Day {index + 1}
                     {item.highlightTag && (
-                      <TagHighlight text={item.highlightTag} />
+                      <TagHighlight
+                        text={item.highlightTag}
+                        className="lg:!text-sm"
+                      />
                     )}
                   </span>
                   <span className="flex items-center gap-3 text-base md:text-base mb-[10px] font-bold font-serifs">
@@ -246,13 +249,15 @@ const ItinerarySection = () => {
                   </div>
                 </div>
 
-                <div className="px-0 py-4">
-                  <div className="font-bold text-[22px] text-center md:text-left pb-6 font-serifs">
-                    Included and optional experiences
-                  </div>
+                {item.carousel && (
+                  <div className="px-0 py-4">
+                    <div className="font-bold text-[22px] text-center md:text-left pb-6 font-serifs">
+                      Included and optional experiences
+                    </div>
 
-                  <Carousel cards={item.carousel} />
-                </div>
+                    <Carousel cards={item.carousel} />
+                  </div>
+                )}
               </div>
             )}
             {/* border bottom  */}
