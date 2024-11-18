@@ -87,7 +87,7 @@ const Carousels: React.FC<CarouselProps> = ({ cards }) => {
         {cards.map((card, index) => (
           <div
             key={index}
-            className="min-w-[311px] w-full md:w-[300px] lg:w-[405px] xl:w-[411px] flex flex-col justify-between border border-[#e6e6e6] rounded-md relative cursor-pointer "
+            className="min-w-[311px] lg:min-w-min w-full md:w-[300px] lg:w-[330px] xl:w-[360px] xl2:w-[411px] flex flex-col justify-between border border-[#e6e6e6] rounded-md relative cursor-pointer "
           >
             <div className="relative">
               <TagHighlight
@@ -99,7 +99,7 @@ const Carousels: React.FC<CarouselProps> = ({ cards }) => {
               />
               <img
                 src={card.image ? urlFor(card.image.asset._ref) : undefined}
-                className="h-[166px] sm:h-[220px] object-cover z-[-1]"
+                className="h-[166px] sm:h-[220px] object-cover z-[-1] w-full"
               />
               <div className="flex flex-col gap-2 p-4">
                 <h3 className="text-sm md:text-base xl:text-lg font-bold font-serifs">
