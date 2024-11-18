@@ -87,33 +87,36 @@ const Carousels: React.FC<CarouselProps> = ({ cards }) => {
         {cards.map((card, index) => (
           <div
             key={index}
-            className="min-w-[311px] w-full md:w-[300px] lg:w-[405px] xl:w-[411px] flex flex-col border border-[#e6e6e6] rounded-md relative cursor-pointer "
+            className="min-w-[311px] w-full md:w-[300px] lg:w-[405px] xl:w-[411px] flex flex-col justify-between border border-[#e6e6e6] rounded-md relative cursor-pointer "
           >
-            <TagHighlight
-              text={
-                card.optionalExp ? 'Optional Experience' : 'Iconic Experience'
-              }
-              optional={card.optionalExp}
-              className="absolute top-2 left-[-5px] !text-sm"
-            />
-            <img
-              src={card.image ? urlFor(card.image.asset._ref) : undefined}
-              className="h-[166px] sm:h-[220px] object-cover z-[-1]"
-            />
-            <div className="flex flex-col gap-2 p-4">
-              <h3 className="text-sm md:text-base xl:text-lg font-bold font-serifs">
-                {card.title || ''}
-              </h3>
-              <p className="text-sm xl:text-base">
-                {card.desc.slice(0, 123)}...
-              </p>
-              <span
-                onClick={() => handleOpenModal(card)}
-                className="text-sm md:text-base cursor-pointer font-bold border-dotted border-b border-b-[#e02044] max-w-fit z-50"
-              >
-                See more
-              </span>
+            <div className="relative">
+              <TagHighlight
+                text={
+                  card.optionalExp ? 'Optional Experience' : 'Iconic Experience'
+                }
+                optional={card.optionalExp}
+                className="absolute top-2 left-[-5px] !text-sm"
+              />
+              <img
+                src={card.image ? urlFor(card.image.asset._ref) : undefined}
+                className="h-[166px] sm:h-[220px] object-cover z-[-1]"
+              />
+              <div className="flex flex-col gap-2 p-4">
+                <h3 className="text-sm md:text-base xl:text-lg font-bold font-serifs">
+                  {card.title || ''}
+                </h3>
+                <p className="text-sm xl:text-base">
+                  {card.desc.slice(0, 123)}...
+                </p>
+                <span
+                  onClick={() => handleOpenModal(card)}
+                  className="text-sm md:text-base cursor-pointer font-bold border-dotted border-b border-b-[#e02044] max-w-fit z-50"
+                >
+                  See more
+                </span>
+              </div>
             </div>
+
             {card.optionalExp ? (
               <div className="px-4 pb-4 gap-2 flex justify-between items-center relative">
                 <p className="text-xs md:text-sm font-bold">
