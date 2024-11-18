@@ -24,6 +24,12 @@ export interface TourSumSectionType {
   tripCode: string
   tileHero: string[]
   marketingMessage: any
+  mapItineraryTitle: string
+  mapImage: {
+    asset: {
+      _ref: string
+    }
+  }
 }
 
 export interface DescType {

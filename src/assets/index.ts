@@ -25,6 +25,17 @@ import AccommodationIcon from './accomodation.svg'
 import CheckBlackIcon from './checkmark-black.svg'
 import DownloadIcon from './download.svg'
 import PrintIcon from './print.svg'
+import MapPlusIcon from './plus.svg'
+import MapMinusIcon from './minus.svg'
+import MapFullscreen from './fullscreen.svg'
+import Legend1 from './legend1.svg'
+import Legend2 from './legend2.svg'
+import Legend3 from './legend3.svg'
+import Legend4 from './legend4.svg'
+import Legend5 from './legend5.svg'
+import Legend6 from './legend6.svg'
+import Legend7 from './legend7.svg'
+import Legend8 from './legend8.svg'
 
 export {
   Humburger,
@@ -53,5 +64,16 @@ export {
   AccommodationIcon,
   CheckBlackIcon,
   DownloadIcon,
-  PrintIcon
+  PrintIcon,
+  MapFullscreen,
+  MapMinusIcon,
+  MapPlusIcon,
+  Legend1,
+  Legend2,
+  Legend3,
+  Legend4,
+  Legend5,
+  Legend6,
+  Legend7,
+  Legend8
 }

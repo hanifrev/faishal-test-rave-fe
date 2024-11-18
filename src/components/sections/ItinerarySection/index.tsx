@@ -146,7 +146,7 @@ const ItinerarySection = () => {
                     {item.title}
                     <CityList
                       cities={item.city}
-                      classNames="hidden lg:block font-normal"
+                      classNames="hidden lg:block font-normal font-default"
                     />
                   </span>
 

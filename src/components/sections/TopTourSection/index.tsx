@@ -5,6 +5,7 @@ import TripYearSelector from 'components/elements/TripYearSelector'
 import TileHero from 'components/modules/TileHero'
 import { useGetTourSummaryQuery } from 'lib/services/api'
 import { urlFor } from 'lib/sanityClient'
+import MapSection from '../MapSection'
 
 const TopTourSection = () => {
   const { data, isLoading, isError } = useGetTourSummaryQuery()
@@ -55,6 +56,7 @@ const TopTourSection = () => {
       </div>
       <TileHero data={data?.tileHero || []} />
       <MarketingMessage data={data?.marketingMessage || []} />
+      <MapSection />
     </div>
   )
 }

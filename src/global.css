@@ -16,6 +16,10 @@ body {
   scroll-behavior: smooth;
 }
 
+.font-default {
+  font-family: 'Noto Sans', sans-serif;
+}
+
 .font-serifs {
   font-family: 'Source Serif Pro', serif;
 }
@@ -141,4 +145,16 @@ body {
 
 .react-multi-carousel-list {
   position: unset !important;
+}
+
+.map-btn {
+  padding: 0.5rem;
+  margin: 0.2rem;
+  background: #fff;
+  box-shadow: 0 4px 4px #e6e6e6;
+  border-radius: 6px;
+}
+
+.react-transform-wrapper {
+  border: 0px;
 }
