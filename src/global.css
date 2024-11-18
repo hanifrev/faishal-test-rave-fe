@@ -69,7 +69,7 @@ body {
 }
 
 .height-fill {
-  height: -webkit-fill-available;
+  height: 123%;
 }
 
 .react-multi-carousel-item {
