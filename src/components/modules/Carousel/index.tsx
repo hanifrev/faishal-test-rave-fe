@@ -126,8 +126,13 @@ const Carousels: React.FC<CarouselProps> = ({ cards }) => {
                   onMouseLeave={tooltipLeave}
                 />
                 {showTooltip == index && (
-                  <div className="absolute top-[-32px] right-11 md:-top-4 z-50">
-                    <Tooltips content={card.optionalExp.addCost} />
+                  <div className="absolute top-[-32px] right-11 md:-top-4 lg:-top-7 z-50">
+                    <Tooltips
+                      content={
+                        card.optionalExp.addCost ||
+                        'Optional Experiences are enhancements to your tour'
+                      }
+                    />
                   </div>
                 )}
               </div>
