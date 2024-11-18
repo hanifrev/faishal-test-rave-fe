@@ -49,13 +49,13 @@ React + Vite, Typescript, TailwindCSS, Sanity CMS, RTK Query
 
 - <b>assets</b>: all icons is in here.
 - <b>components</b>:
-  -- <b>elements</b>: basic components
-  -- <b>modules</b>: mid-level components
-  -- <b>sections</b>: high-level page sections
-  -- <b>lib</b>: application logic and utilities
-  --- services: Contains api.ts for RTK Query configuration and API calls
-  --- sanityClient.ts: Sanity CMS client setup
-  --- store: Redux store setup
-  -- <b>App.tsx</b>: Root application component
+- -- <b>elements</b>: basic components
+- -- <b>modules</b>: mid-level components
+- -- <b>sections</b>: high-level page sections
+- -- <b>lib</b>: application logic and utilities
+- --- services: Contains api.ts for RTK Query configuration and API calls
+- --- sanityClient.ts: Sanity CMS client setup
+- --- store: Redux store setup
+- -- <b>App.tsx</b>: Root application component
 - <b>constant</b>: Contains typescript declaration files
 - <b>index.ts</b>: Entry point for the React application
