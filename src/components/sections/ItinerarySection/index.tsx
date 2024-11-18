@@ -132,7 +132,7 @@ const ItinerarySection = () => {
                     expandedItems[index] && 'md:hidden'
                   }`}
                   // data?.heroImage ? urlFor(data.heroImage.asset._ref) : undefined
-                  src={urlFor(item.image.asset._ref)}
+                  src={item.image ? urlFor(item.image.asset._ref) : undefined}
                 />
                 {/* itinerary summary */}
                 <div className="flex flex-col md:py-[20.8px] md:px-6">
@@ -146,7 +146,7 @@ const ItinerarySection = () => {
                     )}
                   </span>
                   <span className="flex items-center gap-3 text-base md:text-base mb-[10px] font-bold font-serifs">
-                    {item.title}
+                    {item.title || ''}
                     <CityList
                       cities={item.city}
                       classNames="hidden lg:block font-normal font-default"
@@ -179,7 +179,7 @@ const ItinerarySection = () => {
                             alt={item.title}
                             className="w-6"
                           />
-                          <p className="text-sm">{item.title}</p>
+                          <p className="text-sm">{item.title || ''}</p>
                         </div>
                       )
                     })}
@@ -209,13 +209,13 @@ const ItinerarySection = () => {
               <div className="pt-6 pb-10 flex flex-col gap-4 px-2 md:px-10 transition-all">
                 <div className="flex flex-col md:flex-row-reverse md:justify-between">
                   <img
-                    src={urlFor(item.image.asset._ref)}
+                    src={item.image ? urlFor(item.image.asset._ref) : undefined}
                     className="w-auto h-auto pb-3 rounded-md sm:h-full md:w-full max-w-[1600px] md:max-h-[190px] lg:max-h-[230px] xl:max-h-[283px] xl2:max-h-[324px] object-cover"
                   />
                   <div className="flex flex-col gap-4 md:basis-full md:pr-10">
                     {/* <span className="text-base pb-2">Day {index + 1}</span> */}
                     <span className="text-lg md:text-2xl xl:text-[28px] font-bold font-serifs">
-                      {item.title}
+                      {item.title || []}
                     </span>
                     <span className="text-sm md:text-base text-secondary leading-[150%] tracking-[0.1px]">
                       <PortableTextReact data={item.description || []} />
@@ -232,7 +232,7 @@ const ItinerarySection = () => {
                               />
                             )}
                             <span className="text-sm md:text-base">
-                              <b>{item.title}</b> {item.desc}
+                              <b>{item.title || ''}</b> {item.desc || ''}
                               {item.note && (
                                 <>
                                   <br />

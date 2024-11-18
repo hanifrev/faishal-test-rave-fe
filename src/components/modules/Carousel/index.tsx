@@ -97,12 +97,12 @@ const Carousels: React.FC<CarouselProps> = ({ cards }) => {
               className="absolute top-2 left-[-5px] !text-sm"
             />
             <img
-              src={urlFor(card.image.asset._ref)}
+              src={card.image ? urlFor(card.image.asset._ref) : undefined}
               className="h-[166px] sm:h-[220px] object-cover z-[-1]"
             />
             <div className="flex flex-col gap-2 p-4">
               <h3 className="text-sm md:text-base xl:text-lg font-bold font-serifs">
-                {card.title}
+                {card.title || ''}
               </h3>
               <p className="text-sm xl:text-base">
                 {card.desc.slice(0, 123)}...

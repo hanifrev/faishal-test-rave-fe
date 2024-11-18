@@ -54,11 +54,11 @@ const ModalCarousel: React.FC<ModalCarouselProps> = ({ card, onClose }) => {
           } `}
         />
         <h2 className="pt-6 md:pt-12 font-bold text-base lg:text-2xl font-serifs">
-          {card.title}
+          {card.title || ''}
         </h2>
         <img
-          src={urlFor(card.image.asset._ref)}
-          alt={card.title}
+          src={card.image ? urlFor(card.image.asset._ref) : undefined}
+          alt={card.title || ''}
           className="w-full h-[300px] md:h-[395px] xl:h-[452px] object-cover my-4 rounded-md"
         />
         <div className="flex flex-col md:flex-row md:justify-between">

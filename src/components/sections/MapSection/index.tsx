@@ -48,7 +48,9 @@ const MapSection = () => {
                       className="flex flex-row gap-3 w-[50%] pr-8"
                     >
                       <img src={item.icon} className="w-6" />
-                      <span className="font-bold text-base">{item.title}</span>
+                      <span className="font-bold text-base">
+                        {item.title || ''}
+                      </span>
                     </div>
                   )
                 })}
@@ -62,7 +64,9 @@ const MapSection = () => {
                 return (
                   <div key={index} className="flex flex-row gap-6">
                     <img src={item.icon} className="w-4" />
-                    <span className="font-bold text-base">{item.title}</span>
+                    <span className="font-bold text-base">
+                      {item.title || ''}
+                    </span>
                   </div>
                 )
               })}
