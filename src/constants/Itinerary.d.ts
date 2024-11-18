@@ -15,7 +15,7 @@ export interface ItineraryType {
       _ref: string
     }
   }
-  description: string
+  description: []
   carousel: {
     image: {
       asset: {

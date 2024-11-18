@@ -30,7 +30,7 @@ const TopTourSection = () => {
         <div className="relative z-10 flex flex-col justify-center pt-4 pb-6 bg-white md:w-1/2">
           <TripYearSelector />
           {isError && <>Error fetching data</>}
-          <h1 className="text-[22px] md:text-[28px] xl:text-[32px] font-bold leading-[125%] tracking-[-0.4px] pb-4 xl:pb-7">
+          <h1 className="text-[22px] md:text-[28px] xl:text-[32px] font-bold leading-[125%] tracking-[-0.4px] pb-4 xl:pb-7 font-serifs">
             {isLoading
               ? 'Loading...'
               : data?.heroTitle || 'No title availabe, check CMS'}

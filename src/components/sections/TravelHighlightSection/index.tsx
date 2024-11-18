@@ -9,12 +9,12 @@ const TravelHighlightSection = () => {
   return (
     <div className="about-trip-class  pb-12">
       <div className="flex flex-col">
-        <div className="text-[#a7282e] text-center md:text-left pb-4 font-bold text-2xl md:text-base lg:text-lg xl:text-2xl ">
+        <div className="text-[#a7282e] text-center md:text-left pb-4 font-bold text-2xl md:text-base lg:text-lg xl:text-2xl font-serifs">
           {isLoading
             ? 'Loading...'
             : theData?.title || 'No title availabe, check CMS'}
         </div>
-        <div className="text-sm mt-2 text-center md:text-left md:text-lef">
+        <div className="text-sm mt-2 text-center md:text-left">
           {isLoading
             ? 'Loading...'
             : theData?.description || 'No description available, check CMS'}

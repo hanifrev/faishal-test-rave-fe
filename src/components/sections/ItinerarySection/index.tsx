@@ -20,6 +20,8 @@ const ItinerarySection = () => {
 
   const itineraryList = data?.list || []
 
+  console.log(itineraryList)
+
   const [expandedItems, setExpandedItems] = useState<boolean[]>(
     itineraryList.map(() => false)
   )
@@ -60,7 +62,7 @@ const ItinerarySection = () => {
   return (
     <div className="relative pt-2 xl:pt-12 flex flex-col" id="itinerary">
       <div className="flex flex-col pt-6 text-center md:text-left">
-        <span className="font-bold text-[22px] md:text-[28px] xl:text-[32px] mb-2 leading-[125%]">
+        <span className="font-bold text-[22px] md:text-[28px] xl:text-[32px] mb-2 leading-[125%] font-serifs">
           {isLoading
             ? 'Loading...'
             : data?.mainTitle || 'No title availabe, check CMS'}
@@ -140,7 +142,7 @@ const ItinerarySection = () => {
                       <TagHighlight text={item.highlightTag} />
                     )}
                   </span>
-                  <span className="flex items-center gap-3 text-base md:text-base mb-[10px] font-bold">
+                  <span className="flex items-center gap-3 text-base md:text-base mb-[10px] font-bold font-serifs">
                     {item.title}
                     <CityList
                       cities={item.city}
@@ -209,11 +211,11 @@ const ItinerarySection = () => {
                   />
                   <div className="flex flex-col gap-4 md:basis-full md:pr-10">
                     {/* <span className="text-base pb-2">Day {index + 1}</span> */}
-                    <span className="text-lg md:text-2xl xl:text-[28px] font-bold">
+                    <span className="text-lg md:text-2xl xl:text-[28px] font-bold font-serifs">
                       {item.title}
                     </span>
                     <span className="text-sm md:text-base text-secondary leading-[150%] tracking-[0.1px]">
-                      <PortableTextReact data={item.description} />
+                      <PortableTextReact data={item.description || []} />
                     </span>
                     <div className="flex flex-col gap-4 lg:gap-6 pt-2 md:pt-3">
                       {item.facilities?.map((item, index) => {
@@ -245,7 +247,7 @@ const ItinerarySection = () => {
                 </div>
 
                 <div className="px-0 py-4">
-                  <div className="font-bold text-[22px] text-center md:text-left pb-6">
+                  <div className="font-bold text-[22px] text-center md:text-left pb-6 font-serifs">
                     Included and optional experiences
                   </div>
 

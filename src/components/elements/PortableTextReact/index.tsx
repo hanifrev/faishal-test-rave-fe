@@ -12,22 +12,6 @@ const PortableTextReact: React.FC<PortableProps> = ({ data }) => {
       <PortableText
         value={data}
         components={{
-          types: {
-            block: ({ value }) => {
-              if (value.style === 'normal') {
-                return (
-                  <p>
-                    {value.children.map((child: any) => child.text).join(' ')}
-                  </p>
-                )
-              }
-              return (
-                <div>
-                  {value.children.map((child: any) => child.text).join(' ')}
-                </div>
-              )
-            }
-          },
           marks: {
             link: ({ value, children }) => {
               const { href } = value
@@ -36,8 +20,8 @@ const PortableTextReact: React.FC<PortableProps> = ({ data }) => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-500"
-                  style={{ textDecoration: 'underline' }}
+                  className="border-dotted border-b border-b-[#e02044] hover:border-double"
+                  // style={{ textDecoration: 'underline' }}
                 >
                   {children}
                 </a>

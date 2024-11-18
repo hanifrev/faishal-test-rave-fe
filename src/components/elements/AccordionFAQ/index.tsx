@@ -43,7 +43,7 @@ const AccordionFAQ: React.FC<AccordionProps> = ({
 
       {isExpanded && (
         <p className="p-[10px] lg:px-5 border border-t-0 border-[#2d5a7b] transition-all">
-          <PortableTextReact data={answer} />
+          <PortableTextReact data={answer || []} />
         </p>
       )}
     </div>

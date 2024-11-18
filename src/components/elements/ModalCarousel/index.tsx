@@ -37,7 +37,7 @@ const ModalCarousel: React.FC<ModalCarouselProps> = ({ card, onClose }) => {
         <div className="flex flex-row items-center">
           <span
             className={`          
-               h-[22px] font-bold text-lg md:absolute md:left-4 md:top-0`}
+               h-[22px] font-bold text-lg md:absolute md:left-4 md:top-0 font-serifs`}
           >
             {card.optionalExp && 'Optional Experience'}
           </span>
@@ -53,7 +53,9 @@ const ModalCarousel: React.FC<ModalCarouselProps> = ({ card, onClose }) => {
             card.optionalExp ? 'block' : 'hidden'
           } `}
         />
-        <h2 className="pt-6 md:pt-10 font-bold text-base">{card.title}</h2>
+        <h2 className="pt-6 md:pt-10 font-bold text-base lg:text-2xl font-serifs">
+          {card.title}
+        </h2>
         <img
           src={urlFor(card.image.asset._ref)}
           alt={card.title}
@@ -61,18 +63,26 @@ const ModalCarousel: React.FC<ModalCarouselProps> = ({ card, onClose }) => {
         />
         <div className="flex flex-col md:flex-row md:justify-between">
           <span className="flex flex-col md:pr-20 md:basis-[120%]">
-            <h2 className="text-base font-bold pb-2">Experience Info</h2>
+            <h2 className="text-base font-bold pb-2 lg:text-2xl font-serifs">
+              Experience Info
+            </h2>
             <p className="text-sm">{card.desc}</p>
           </span>
           {card.optionalExp && (
             <div className="pt-4 md:pt-0">
               <span className="font-bold ">
-                <h2 className="text-base font-bold">Pricing Info</h2>
-                <p className="text-sm">{card.optionalExp.category}</p>
+                <h2 className="text-base font-bold lg:text-2xl pb-2 lg:pb-4 font-serifs">
+                  Pricing Info
+                </h2>
+                <p className="text-sm">
+                  {card.optionalExp.category || 'Adults'}
+                </p>
                 <p className="text-sm">{card.optionalExp.price}</p>
               </span>
               <span>
-                <h2 className="text-base font-bold pb-2 pt-4">How to book?</h2>
+                <h2 className="text-base lg:text-2xl font-bold pb-2 pt-4 font-serifs">
+                  How to book?
+                </h2>
                 <p className="text-sm">{card.optionalExp.bookDesc}</p>
               </span>
             </div>
