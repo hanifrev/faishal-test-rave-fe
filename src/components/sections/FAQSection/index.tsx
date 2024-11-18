@@ -33,7 +33,7 @@ const FAQSection = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="font-bold text-[22px] pb-2 font-serifs">
+      <div className="font-bold text-[22px] pb-2 font-serifs md:text-[28px] xl:text-[32px]">
         {isLoading
           ? 'Loading...'
           : data?.mainTitle || 'No title availabe, check CMS'}

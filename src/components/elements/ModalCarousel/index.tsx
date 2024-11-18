@@ -37,7 +37,7 @@ const ModalCarousel: React.FC<ModalCarouselProps> = ({ card, onClose }) => {
         <div className="flex flex-row items-center">
           <span
             className={`          
-               h-[22px] font-bold text-lg md:absolute md:left-4 md:top-0 font-serifs`}
+               h-[22px] font-bold text-lg md:absolute md:left-4 md:top-1 font-serifs`}
           >
             {card.optionalExp && 'Optional Experience'}
           </span>
@@ -49,11 +49,11 @@ const ModalCarousel: React.FC<ModalCarouselProps> = ({ card, onClose }) => {
           </button>
         </div>
         <div
-          className={`absolute inset-x-0 top-9 border-t border-gray-300 w-screen  left-1/2 -translate-x-1/2 md:hidden z-[999] h-[1px] ${
+          className={`absolute inset-x-0 top-9 border-t border-gray-300 w-screen  left-1/2 -translate-x-1/2 max-w-[1140px] z-[999] h-[1px] ${
             card.optionalExp ? 'block' : 'hidden'
           } `}
         />
-        <h2 className="pt-6 md:pt-10 font-bold text-base lg:text-2xl font-serifs">
+        <h2 className="pt-6 md:pt-12 font-bold text-base lg:text-2xl font-serifs">
           {card.title}
         </h2>
         <img
@@ -66,7 +66,7 @@ const ModalCarousel: React.FC<ModalCarouselProps> = ({ card, onClose }) => {
             <h2 className="text-base font-bold pb-2 lg:text-2xl font-serifs">
               Experience Info
             </h2>
-            <p className="text-sm">{card.desc}</p>
+            <p className="text-sm lg:text-base">{card.desc}</p>
           </span>
           {card.optionalExp && (
             <div className="pt-4 md:pt-0">
@@ -77,13 +77,16 @@ const ModalCarousel: React.FC<ModalCarouselProps> = ({ card, onClose }) => {
                 <p className="text-sm">
                   {card.optionalExp.category || 'Adults'}
                 </p>
-                <p className="text-sm">{card.optionalExp.price}</p>
+                <p className="text-sm lg:text-xl">{card.optionalExp.price}</p>
               </span>
               <span>
                 <h2 className="text-base lg:text-2xl font-bold pb-2 pt-4 font-serifs">
                   How to book?
                 </h2>
-                <p className="text-sm">{card.optionalExp.bookDesc}</p>
+                <p className="text-sm">
+                  {card.optionalExp.bookDesc ||
+                    'Optional Experiences are enhancements to your tour and can be booked through your Travel Director while on tour.'}
+                </p>
               </span>
             </div>
           )}

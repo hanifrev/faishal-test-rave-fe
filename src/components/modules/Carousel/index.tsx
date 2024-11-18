@@ -94,7 +94,7 @@ const Carousels: React.FC<CarouselProps> = ({ cards }) => {
                 card.optionalExp ? 'Optional Experience' : 'Iconic Experience'
               }
               optional={card.optionalExp}
-              className="absolute top-2 left-[-5px]"
+              className="absolute top-2 left-[-5px] !text-sm"
             />
             <img
               src={urlFor(card.image.asset._ref)}
