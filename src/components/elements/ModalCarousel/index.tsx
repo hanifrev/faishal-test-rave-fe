@@ -31,7 +31,7 @@ const ModalCarousel: React.FC<ModalCarouselProps> = ({ card, onClose }) => {
       onClick={onClose}
     >
       <div
-        className="bg-white p-4 md:px-[116px] pt-0 rounded-lg  w-full xl:max-w-[1140px] !h-full md:!h-[92%] relative !z-[999999]"
+        className="bg-white p-4 md:px-[116px] pt-0 rounded-lg  w-full xl:max-w-[1140px] !h-full md:!h-[92%] relative !z-[999999] overflow-y-scroll"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-row items-center">
